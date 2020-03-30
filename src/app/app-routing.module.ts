@@ -12,6 +12,10 @@ const routes: Routes = [
   {
     path: 'splash',
     component: SplashComponent
+  },
+  {
+    path: 'auth',
+    loadChildren: () => import('./features/auth/auth.module').then(mod => mod.AuthModule)
   }
 ];
 
