@@ -77,8 +77,9 @@
   }
   .authFooterText{
     width:100%;
-    position:absolute;
-    bottom:40px;
+    position:relative;
+    margin-top:20px;
+    bottom:0px;
     h2{color:#FFFFFF; text-align:center; font-size: 36px; margin-bottom:6px; font-weight: 200; text-align: center;}
     p{color:#FFFFFF; text-align:center; font-size: 18px; text-align: center; font-weight: 200; letter-spacing:1px;}
   }

@@ -6,7 +6,7 @@
   height:auto;
   position:relative;
   .mainWrapper{
-    padding:80px 25px 60px;
+    padding:80px 0px 60px;
     position: relative;
     z-index: 5;
     color:#FFFFFF;
@@ -78,7 +78,7 @@
   .themeBgImg{
     width:100%;
     height:100%;
-    position: absolute;
+    position: fixed;
     z-index:2;
     .overlay{
       width:100%;
