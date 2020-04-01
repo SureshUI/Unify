@@ -1,5 +1,5 @@
 .mainComponents{
-  width:500px;
+  width:100%;
   max-width:100%;
   margin: 0px auto;
   min-height:100vh;
@@ -10,6 +10,7 @@
     position: relative;
     z-index: 5;
     color:#FFFFFF;
+    min-height:100vh;
   }
   .pageHeader{
     width:100%;
