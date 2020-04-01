@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { SplashComponent } from './features/splash/splash.component';
+import { importType } from '@angular/compiler/src/output/output_ast';
 
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./features/auth/auth.module').then(mod => mod.AuthModule)
+  },
+  {
+    path: 'main',
+    loadChildren: () => import('./features/main/main.module').then(mod => mod.MainModule)
   }
 ];
 
