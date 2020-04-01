@@ -1,43 +1,109 @@
 
 
 @font-face {
-  font-family: 'CeraRoundPro';
+  font-family: 'ThemeFont';
   font-style: normal;
   font-weight: 200;
-  src: url('./assets/fonts/CeraRoundPro-Thin.otf');
+  src: url('./assets/fonts/SourceSansPro-ExtraLight.ttf');
 }
 @font-face {
-  font-family: 'CeraRoundPro';
+  font-family: 'ThemeFont';
   font-style: normal;
   font-weight: 300;
-  src: url('./assets/fonts/CeraRoundPro-Light.otf');
+  src: url('./assets/fonts/SourceSansPro-Light.ttf');
 }
 @font-face {
-  font-family: 'CeraRoundPro';
+  font-family: 'ThemeFont';
   font-style: normal;
   font-weight: 400;
-  src: url('./assets/fonts/CeraRoundPro-Regular.otf');
+  src: url('./assets/fonts/SourceSansPro-Regular.ttf');
 }
 @font-face {
-  font-family: 'CeraRoundPro';
+  font-family: 'ThemeFont';
   font-style: normal;
   font-weight: 500;
-  src: url('./assets/fonts/CeraRoundPro-Medium.otf');
+  src: url('./assets/fonts/SourceSansPro-SemiBold.ttf');
 }
 @font-face {
-  font-family: 'CeraRoundPro';
+  font-family: 'ThemeFont';
   font-style: normal;
   font-weight: 600;
-  src: url('./assets/fonts/CeraRoundPro-Bold.otf');
+  src: url('./assets/fonts/SourceSansPro-Bold.ttf');
 }
 @font-face {
-  font-family: 'CeraRoundPro';
+  font-family: 'ThemeFont';
   font-style: normal;
   font-weight: 700;
-  src: url('./assets/fonts/CeraRoundPro-Black.otf');
+  src: url('./assets/fonts/SourceSansPro-Black.ttf');
 }
-@font-face {
-  font-family: 'Typographica';
-  font-style: normal;
-  src: url('./assets/fonts/Typographica.ttf');
+
+
+
+
+
+
+
+body{
+	font-family: 'ThemeFont' !important;
+  font-weight: 400;
 }
+
+
+
+
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+*{box-sizing: border-box;}
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+  line-height: 1;
+  background-color: #010101;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+a{
+  text-decoration: none;
+  cursor: pointer;
+}
+
+
+

@@ -1,71 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-body{
-	font-family: 'CeraRoundPro' !important;
-  font-weight: 400;
-}
-
-
-
-
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/
-*{box-sizing: border-box;}
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-a{
-  text-decoration: none;
-  cursor: pointer;
-}
-
-
-
-
-
 
 
 
@@ -74,6 +9,9 @@ a{
   background-size: 100%;
   background-position: bottom left;
   position:relative;
+  max-width:100%;
+  width:500px;
+  margin:0px auto;
   .wrapper{
     width:100%;
     height:100%;
@@ -90,12 +28,18 @@ a{
       .authHead{
         margin-bottom:25px;
       }
-      h3{ color:#FFFFFF; text-align: center; font-size:26px; font-weight: 200;}
-      p{ color:rgba(255, 255, 255, 0.7); margin-top:8px; text-align: center; font-size:14px; font-weight: 200;}
+      h3{ color:#FFFFFF; text-align: center; font-size:26px; font-weight: 400;}
+      p{ color:#FFFFFF; text-align: center; font-size:16px; width:200px; max-width:90%; margin:8px auto 0px; font-weight: 300;     line-height: 20px;}
 
       .formFields{
         margin-bottom:12px;
-        
+        position:relative;
+        a.viewIco{
+          cursor: pointer;
+          position:absolute;
+          right:10px;
+          top:4px;
+        }
         .rTxt{
           display: block;
           text-align: right;
@@ -111,12 +55,13 @@ a{
           border:none;
           border-radius:3px;
           padding:5px 15px;
-          background-color: rgba(255,255,255,0.2);
+          color:#FFFFFF;
+          background-color: rgba(255,255,255,0.2) !important;
         }
         input::placeholder{
-          font-size:14px;
-          color:rgba(255,255,255,0.7);
-          font-weight: 200;
+          font-size:16px;
+          color:#FFFFFF;
+          font-weight: 300;
         }
       }
       .btnWhite{
@@ -124,8 +69,8 @@ a{
         border:none;
         height:38px;
         border-radius:20px;
-        background-color: #dae3e6;
-        font-size: 14px;
+        background-color: rgba(255,255,255,0.85);
+        font-size: 16px;
         font-weight: 400;
       }
     }
