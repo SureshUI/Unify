@@ -4,17 +4,19 @@
       <div class="authHead">
         <h3>The quantum awaits!</h3>
       </div>
-      
+
       <div class="formFields">
-        <input type="text" placeholder="Email"/>
+        <input type="text" placeholder="Username" [(ngModel)]="loginModel.username" required />
       </div>
       <div class="formFields">
-        <input type="text" placeholder="Password"/>
+        <input type="password" placeholder="Password" [(ngModel)]="loginModel.password" required />
       </div>
       <div class="formFields">
         <span class="rTxt"><a routerLink="/auth/forgotpassword">Forgot password?</a></span>
       </div>
-      <button class="btnWhite" routerLink="/main/home">Login</button>
+      <p style="color: red;" *ngIf="errorMsg"> Invalid User</p>
+      <button class="btnWhite" [disabled]="!loginModel.username&&!loginModel.password"
+        (click)="login(loginModel)">Login</button>
 
       <div class="signupBtn">
         <p>New User?</p>

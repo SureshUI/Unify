@@ -5,31 +5,37 @@
         <h3>Sign up</h3>
         <p>We just need a few details from you to get you started!</p>
       </div>
-      
+
+      <!-- <div class="formFields">
+        <input type="text" placeholder="First name" />
+      </div> -->
       <div class="formFields">
-        <input type="text" placeholder="First name"/>
+        <input type="text" placeholder="User Name" [(ngModel)]="userModel.username" />
       </div>
       <div class="formFields">
-        <input type="text" placeholder="Last name"/>
+        <input type="email" placeholder="Email" [(ngModel)]="userModel.email" />
       </div>
       <div class="formFields">
-        <input type="text" placeholder="Email"/>
-      </div>
-      <div class="formFields">
-        <input type="password" placeholder="Password"/>
+        <input type="password" placeholder="Password" [(ngModel)]="userModel.password" />
         <a class="viewIco"><img src="./assets/images/icons/view.png" height="14" alt="View" /></a>
       </div>
       <div class="formFields">
-        <input type="password" placeholder="Confirm Password"/>
+        <input type="password" placeholder="Confirm Password" [(ngModel)]="userModel.confirmPassword" />
         <a class="viewIco"><img src="./assets/images/icons/view.png" height="14" alt="View" /></a>
       </div>
-      <button class="btnWhite">Submit</button>
+      <p style="color: red;"
+        *ngIf="userModel.password!=userModel.confirmPassword&&(userModel.password&&userModel.confirmPassword)">Your
+        password and confirmation password do not match.</p>
+      <!-- [disabled]="userModel.username&&userModel.email&&userModel.password&&userModel.confirmPassword" -->
+      <button class="btnWhite"
+        [disabled]="(!userModel.username&&!userModel.email&&!userModel.password&&!userModel.confirmPassword) ||( userModel.password!=userModel.confirmPassword)"
+        (click)="signIn(userModel)">Submit</button>
       <div class="formFields">
         <span class="rTxt"><a routerLink="/auth/login">Cancel</a></span>
       </div>
-      
 
-     
+
+
     </div>
     <div class="authFooterText">
       <h2>unify</h2>
