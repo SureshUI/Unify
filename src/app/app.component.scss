@@ -18,18 +18,23 @@
     position: absolute;
     left:0px;
     top:0px;
+    display: flex;
+    flex-direction: column;
+
     background-color: rgba(0,0,0,0.4);
     .authFormCont{
-      padding-top:60px;
+      padding-top:120px;
       padding-left:30px;
       padding-right:30px;
       margin:0px auto;
       max-width:500px;
+      width:100%;
+      flex:1 1;
       .authHead{
         margin-bottom:25px;
       }
       h3{ color:#FFFFFF; text-align: center; font-size:26px; font-weight: 400;}
-      p{ color:#FFFFFF; text-align: center; font-size:16px; width:200px; max-width:90%; margin:8px auto 0px; font-weight: 300;     line-height: 20px;}
+      p{ color:#FFFFFF; text-align: center; font-size:16px; width:260px; max-width:90%; margin:8px auto 0px; font-weight: 300;     line-height: 20px;}
 
       .formFields{
         margin-bottom:12px;
@@ -38,7 +43,7 @@
           cursor: pointer;
           position:absolute;
           right:10px;
-          top:4px;
+          top:9px;
         }
         .rTxt{
           display: block;
@@ -51,7 +56,7 @@
         }
         input{
           width:100%;
-          height:36px;
+          height:46px;
           border:none;
           border-radius:3px;
           padding:5px 15px;
@@ -67,8 +72,8 @@
       .btnWhite{
         width:100%;
         border:none;
-        height:38px;
-        border-radius:20px;
+        height:46px;
+        border-radius:23px;
         background-color: rgba(255,255,255,0.85);
         font-size: 16px;
         font-weight: 400;
@@ -78,8 +83,9 @@
   .authFooterText{
     width:100%;
     position:relative;
-    margin-top:20px;
+    margin-top:100px;
     bottom:0px;
+    margin-bottom: 28px;
     h2{color:#FFFFFF; text-align:center; font-size: 36px; margin-bottom:6px; font-weight: 200; text-align: center;}
     p{color:#FFFFFF; text-align:center; font-size: 18px; text-align: center; font-weight: 200; letter-spacing:1px;}
   }
