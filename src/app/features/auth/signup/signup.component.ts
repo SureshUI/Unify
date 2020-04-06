@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-
+  public errorMsg = false;
   constructor(private service: AuthService, public router: Router) { }
   public userModel = {};
   ngOnInit() {
@@ -21,6 +21,10 @@ export class SignupComponent implements OnInit {
       if (res) {
         this.router.navigate(["/auth/login"]);
       }
+    }, (error) => {
+      this.errorMsg = true;                           //Error callback
+      // console.error('error caught in component', error.error)
+
     })
   }
 

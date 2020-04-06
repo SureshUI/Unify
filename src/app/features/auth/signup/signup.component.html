@@ -23,6 +23,7 @@
         <input type="password" placeholder="Confirm Password" [(ngModel)]="userModel.confirmPassword" />
         <a class="viewIco"><img src="./assets/images/icons/view.png" height="14" alt="View" /></a>
       </div>
+      <p style="color: red;" *ngIf="errorMsg">A user with that username already exists.</p>
       <p style="color: red;"
         *ngIf="userModel.password!=userModel.confirmPassword&&(userModel.password&&userModel.confirmPassword)">Your
         password and confirmation password do not match.</p>
