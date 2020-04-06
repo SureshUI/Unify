@@ -1,27 +1,112 @@
-
-
-
-
-
-<div class="pageFooter">
-  <div class="tabBox">
-    <a class="iconBox active" routerLink="/main/home" routerLinkActive="active">
-      <img src="./assets/images/icons/home.png" alt="home"/>
-    </a>
+<div class="addSessions">
+  <div class="inputContainer">
+    <textarea placeholder="Enter session title"></textarea>
   </div>
-  <div class="tabBox">
-    <a class="iconBox" routerLink="/main/mysessions" routerLinkActive="active">
-      <img src="./assets/images/icons/headset.png" alt="Session"/>
-    </a>
+
+  <div class="hostDetail">
+    <div class="bannerImg">
+      <div >
+        <img src="./assets/images/icons/image.svg" width="40" alt="img"/>
+        <p>Add Image</p>
+      </div>
+    </div>
+    <div class="details">
+      <div class="prodetails">
+        <div class="proImg">
+          <img src="./assets/images/profile.png" alt="profile"/>
+        </div>
+        <div class="proText">
+          <label>Hosted by</label>
+          <p>Peter</p>
+        </div>
+      </div>
+
+     
+
+      <div class="trackBox">
+        <div class="icon">
+          <input type="checkbox" />
+        </div>
+        <div class="input">
+          <p>Auto start</p>
+        </div>
+        <div class="more ml-auto">
+          <a><img src="./assets/images/icons/more.svg" alt="More"/></a>
+        </div>
+      </div>
+
+      <div class="trackBox">
+        <div class="icon">
+          <input type="checkbox" />
+        </div>
+        <div class="input">
+          <p>Public</p>
+        </div>
+        <div class="more ml-auto">
+          <a><img src="./assets/images/icons/more.svg" alt="More"/></a>
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="tabBox">
-    <a class="iconBox" routerLink="/main/explore" routerLinkActive="active">
-      <img src="./assets/images/icons/search.png" alt="Explore"/>
-    </a>
+
+  <div class="inputContainer">
+    <label>Description <span>(required only for public events)</span></label>
+    <textarea placeholder="Enter the lines about the session"></textarea>
   </div>
-  <div class="tabBox">
-    <a class="iconBox">
-      <img src="./assets/images/icons/more.png" alt="More"/>
-    </a>
+
+  <div class="inputContainer">
+    <label>Participants </label>
+    <input type="text" placeholder="Invite participants" />
+  </div>
+  <div class="meditationTrack">
+    <label>Meditation track</label>
+    <div class="trackBox">
+      <div class="icon">
+        <img src="./assets/images/icons/cloud.svg" width="36" alt="cloud" />
+      </div>
+      <div class="input">
+        <input type="text" placeholder="Load from UNIFY CLOUD"/>
+      </div>
+      <div class="more ml-auto">
+        <a><img src="./assets/images/icons/more.svg" alt="More"/></a>
+      </div>
+    </div>
+    <p class="text-center">Or</p>
+    <div class="trackBox">
+      <div class="icon">
+        <img src="./assets/images/icons/phone.svg" width="36" alt="cloud" />
+      </div>
+      <div class="input">
+        <input type="text" placeholder="Let participants load track"/>
+      </div>
+      <div class="more ml-auto">
+        <a><img src="./assets/images/icons/more.svg" alt="More"/></a>
+      </div>
+    </div>
+  </div>
+  <div class="comments">
+    <label>Comments</label>
+    <div class="addComment d-flex">
+      <div class="userProfile">
+        <img src="./assets/images/profile.png"  alt="user" />
+      </div>
+      <div class="inputField" style="padding-left:24px;">
+        <input type="text" placeholder="Add Comment"/>
+      </div>
+    </div>
+  </div>
+
+  <div class="bottomBtn d-flex">
+    <div class="back ">
+      <img src="./assets/images/icons/back.svg" width="18" alt="back"/>
+    </div>
+    <div class="previewBtn ml-auto">
+      <button type="button">Preview</button>
+    </div>
   </div>
 </div>
+
+
+
+
+

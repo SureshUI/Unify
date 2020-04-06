@@ -1,0 +1,206 @@
+.addSessions{
+  padding:7px 20px;
+
+  .hostDetail{
+    display: flex;
+    margin-bottom:30px;
+    .bannerImg{
+      width:120px;
+      height:170px;
+      background-color: rgba(255, 255, 255, 0.2) !important;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      img{
+        opacity: 0.2;
+        display: block;
+        margin:0px auto;
+      }
+      p{
+        color:rgba(255, 255, 255,0.2);
+        font-size:12px;
+      }
+    }
+    .details{
+      flex:1 1;
+      padding-left:15px;
+      .prodetails{
+        display: flex;
+        .proImg{
+          width:46px;
+          height:46px;
+          border-radius:23px;
+          img{
+            object-fit: cover;
+            width: 46px;
+            height: 46px;
+          }
+        }
+        .proText{
+          padding-left:10px;
+          label{
+            margin:0px;
+            font-size:14px;
+          }
+          p{
+            font-size:16px;
+            margin:0px;
+            line-height:16px !important;
+          }
+        }
+      }
+    }
+  }
+
+  .meditationTrack{
+    margin-bottom:30px;
+    margin-top:20px;
+    label{
+      margin-bottom:12px;
+      margin-left:6px;
+      font-size:18px;
+
+    }
+    .trackBox{
+      display:flex;
+      align-items: center;
+      margin-bottom:10px;
+      .icon{
+        width:45px;
+      }
+      .input{
+        input{
+          width:220px;
+          border: none;
+          border-radius: 3px;
+          padding: 5px 15px;
+          color: #FFFFFF;
+          background-color: rgba(255, 255, 255, 0.2) !important;
+          &::placeholder{
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 300;
+          }
+        }
+
+      }
+    }
+  }
+  .details{
+    .trackBox{
+      display:flex;
+      align-items: center;
+      margin-bottom:6px;
+      margin-top:15px;
+      .icon{
+        width:20px;
+      }
+      .input{
+        display: flex;
+        align-items: center;
+        p{
+          margin:0px;
+        }
+
+      }
+    }
+  }
+
+  .bottomBtn{
+    margin-top:30px;
+    margin-bottom:20px;
+    .back{
+      width:45px;
+      height:45px;
+      border-radius:23px;
+      background-color:rgba(255,255,255,0.2);
+      display:flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .previewBtn{
+      button{
+        background-color:#FFFFFF;
+        border:none;
+        height:38px;
+        border-radius:20px;
+        width:140px;
+      }
+    }
+  }
+
+  .inputContainer{
+    margin-bottom:12px;
+    textarea{
+      min-height:70px;
+    }
+    input{
+      min-height:46px;
+    }
+    input, textarea{
+      width:100%;
+      border: none;
+      border-radius: 3px;
+      padding: 5px 15px;
+      color: #FFFFFF;
+      background-color: rgba(255, 255, 255, 0.2) !important;
+    }
+    textarea::placeholder, input::placeholder{
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 300;
+    }
+
+    label{
+      margin-bottom:5px;
+      margin-left:6px;
+      font-size:19px;
+      span{
+        font-size:14px;
+      }
+    }
+  }
+  
+
+  .comments{
+    margin:10px 0px;
+    label{
+      margin-bottom:5px;
+      margin-left:6px;
+      font-size:18px;
+    }
+    .userProfile{
+      width:46px;
+      padding-right:24px;
+      height: 46px;
+      border-radius: 50%;
+      overflow: hidden;
+      padding: 0px;
+      img{
+        object-fit: cover;
+        width: 46px;
+        height: 46px;
+      }
+    }
+    .addComment{
+      margin-top:10px;
+    }
+    .inputField{
+      flex:1 1;
+      input{
+        width:100%;
+        height:46px;
+        border: none;
+        border-radius: 3px;
+        padding: 5px 15px;
+        color: #FFFFFF;
+        background-color: rgba(255, 255, 255, 0.2) !important;
+        &::placeholder{
+          color: #FFFFFF;
+          font-size: 16px;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+}

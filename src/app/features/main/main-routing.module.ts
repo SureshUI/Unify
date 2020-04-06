@@ -4,6 +4,7 @@ import { MainComponent } from './main.component';
 import { HomeComponent } from './home/home.component';
 import { MysessionsComponent } from './mysessions/mysessions.component';
 import { ExploreComponent } from './explore/explore.component';
+import { AddsessionComponent } from './addsession/addsession.component';
 
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
         component: MysessionsComponent
       },
       {
+        path: 'addsession',
+        component: AddsessionComponent
+      },
+      {
         path: 'explore',
         component: ExploreComponent
       }
@@ -38,4 +43,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class MainRoutingModule { }
-export const MainRoutingComponents = [MainComponent, HomeComponent, MysessionsComponent, ExploreComponent];
+export const MainRoutingComponents = [MainComponent, HomeComponent, MysessionsComponent, ExploreComponent, AddsessionComponent];
