@@ -284,7 +284,14 @@
 <div class="calendarCont"> <!-- Calender Starts -->
   <div class="scheduleTime">
     <h5>Select schedule</h5>
-    <p class="chooseDate">Tue, Feb 25, 2020</p>
+    <p class="chooseDate">
+      <mat-form-field>
+        <mat-label>Choose a date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </p>
 
 
     <div class="timeSelect">
