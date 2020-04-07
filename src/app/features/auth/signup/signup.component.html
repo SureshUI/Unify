@@ -1,5 +1,5 @@
 <div class="authCont">
-  <div  class="authBgImg"><img src="./assets/images/bg1.png" alt="Background"/></div>
+  <div class="authBgImg"><img src="./assets/images/bg1.png" alt="Background" /></div>
   <div class="wrapper">
     <div class="authFormCont">
       <div class="authHead">
@@ -7,9 +7,12 @@
         <p>We just need a few details from you to get you started!</p>
       </div>
 
-      <!-- <div class="formFields">
-        <input type="text" placeholder="First name" />
-      </div> -->
+      <div class="formFields">
+        <input type="text" placeholder="First name" [(ngModel)]="userModel.first_name" />
+      </div>
+      <div class="formFields">
+        <input type="text" placeholder="Last name" [(ngModel)]="userModel.last_name" />
+      </div>
       <div class="formFields">
         <input type="text" placeholder="User Name" [(ngModel)]="userModel.username" />
       </div>
