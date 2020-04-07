@@ -101,7 +101,7 @@
       margin-bottom:6px;
       margin-top:15px;
       .icon{
-        width:20px;
+        width:25px;
       }
       .input{
         display: flex;
@@ -243,3 +243,243 @@
     }
   }
 }
+
+
+
+
+
+
+
+
+/* Customize the label (the container) */
+.checkbox {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkbox .checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  border:2px solid #eee;
+  border-radius:3px;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox input:checked ~ .checkmark {
+  // background-color: #2196F3;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox .checkmark:after {
+  left: 3px;
+  top: -1px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+
+/* CALENDAR */
+
+.calendarCont{
+  width:100%;
+  position:absolute;
+  z-index:10;
+  height:auto;
+  bottom:0px;
+  min-height:0px;
+  background-color: #DCDCDC;
+  border-radius:40px 40px 0px 0px;
+  color:#000000;
+  
+  .scheduleTime{
+    .timeSelect{
+      width:calc(100% - 60px);
+      .calLabel{
+        display: flex;
+        label{
+          font-size:14px;
+        }
+        .lblLeft{position:relative; left:-30px;}
+        .lblRight{position:relative; right:-30px;}
+      }
+      .line{
+        width:100%;
+        height: 1px;
+        background-color: #707070;
+        margin:10px 0px;
+        position: relative;
+        .cl{
+          position:absolute; 
+          left:-5px;
+          height:8px;
+          width:8px;
+          border-radius:50%;
+          background-color: #606060;
+          top:-4px;
+        }
+        .cr{
+          position:absolute; 
+          right:-5px;
+          top:-4px;
+          height:8px;
+          width:8px;
+          border-radius:50%;
+          background-color: #606060;
+        }
+      }
+      margin:20px auto 20px;
+      .startAndEndTime{
+        display:flex;
+        align-items: center;
+        margin:0px 0px 20px;
+        a{
+          font-size:20px;
+        }
+        a.timeL{position:relative; left:-30px;}
+        a.timeR{position:relative; right:-30px;}
+        .clock{
+          flex:1 1;
+          text-align:center;
+        }
+      }
+    }
+    padding:0px 30px 30px;
+    .ends{
+      margin:18px 0px 18px 15px;
+      p{ font-size:20px;}
+      a{
+        font-size:18px;
+      }
+    }
+    .repeats{
+      margin:18px 0px 18px 15px;
+      p{ font-size:20px;}
+      ul{
+        display: flex;
+        li{
+          padding-left:3px;
+          a{
+            width:26px;
+            height:26px;
+            border-radius:15px;
+            background-color:#FFFFFF;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            &.active{
+              background-color: rgba(0,0,0,0.75);
+              color:#FFFFFF;
+            }
+          }
+        }
+      }
+    }
+    .checkbox{
+      font-size:18px;
+      padding-left: 30px;
+      font-weight: 400;
+      .checkmark{
+        height: 17px;
+        width: 17px;
+        border-radius: 5px;
+        top: 3px;
+        border: 1px solid #000000;
+      }
+      .checkmark:after {
+        border-color:#000000;
+        left: 5px;
+        top: 1px;
+        border-width: 0 2px 2px 0;
+        width:5px;
+      }
+    }
+
+    .selectDate{
+      display: flex;
+      margin-top:26px;
+    }
+  }
+  h5{
+    text-align:center;
+    font-size:22px;
+    color:#000000;
+    padding:16px 0px;
+    font-weight: 600;
+  }
+  .chooseDate{
+    margin-bottom:35px;
+    text-align:center;
+  }
+  p{
+    text-align:center;
+    color:#000000;
+    font-size: 22px;
+  }
+  .meanTime{
+    font-size:17px;
+    img{
+      position:relative;
+      left:-2px;
+      top:-2px;
+    }
+  }
+  .grayBtn{
+    button{
+      width:100%;
+      height:54px;
+      background-color: rgba(0,0,0,0.75);
+      color:#FFFFFF;
+      border:none;
+      font-size:20px;
+      font-size: 300;
+    }
+  }
+}
+
+
+
+.pageFooter{z-index:-1 !important}
