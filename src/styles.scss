@@ -111,3 +111,23 @@ a{text-decoration: none !important;}
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.partText{
+  .mat-form-field{
+    width:100%;
+    .mat-form-field-infix{
+      background-color: #eaeaea;
+      height:42px;
+      padding:10px 20px;
+      border:none;
+    }
+  }
+  
+  .mat-form-field-appearance-legacy .mat-form-field-underline{
+    display: none;
+  }
+  .mat-form-field-type-mat-select .mat-form-field-label{
+        top: 25px;
+    left: 15px;
+  }
+}

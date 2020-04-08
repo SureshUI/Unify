@@ -15,18 +15,19 @@ export class LoginComponent implements OnInit {
   }
 
   login(model) {
-    console.log("model", model);
+
     this.service.login(model).subscribe(result => {
       let res = JSON.parse(result);
       if (res.user_id) {
+        localStorage.setItem("token", res.access);
+        localStorage.setItem("userId", res.user_id);
         this.router.navigate(["/main/home"]);
       } else {
-        //alert("Invalid User");
+
         this.errorMsg = true;
       }
     }, (error) => {
       this.errorMsg = true;                           //Error callback
-      // console.error('error caught in component', error.error)
 
     });
   }

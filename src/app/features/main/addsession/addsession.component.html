@@ -1,20 +1,21 @@
 <!--  ADD SESSION  -->
-<div class="addSessions" *ngIf="false"> <!--  Add session Starts  -->
+<div class="addSessions" *ngIf="createSessionFlag&&!datetimeFlag&&!previewPageFlag&&!loadTrackFlag">
+  <!--  Add session Starts  -->
   <div class="inputContainer">
-    <textarea placeholder="Enter session title"></textarea>
+    <textarea placeholder="Enter session title" [(ngModel)]="sessionModel.session_name"></textarea>
   </div>
 
   <div class="hostDetail">
     <div class="bannerImg">
-      <div >
-        <img src="./assets/images/icons/image.svg" width="40" alt="img"/>
+      <div>
+        <img src="./assets/images/icons/image.svg" width="40" alt="img" />
         <p>Add Image</p>
       </div>
     </div>
     <div class="details">
       <div class="prodetails">
         <div class="proImg">
-          <img src="./assets/images/profile.png" alt="profile"/>
+          <img src="./assets/images/profile.png" alt="profile" />
         </div>
         <div class="proText">
           <label>Hosted by</label>
@@ -24,18 +25,18 @@
 
       <div class="trackBox">
         <div class="icon">
-          <img src="./assets/images/calendar.svg" alt="calender"/>
+          <img src="./assets/images/calendar.svg" alt="calender" />
         </div>
         <div class="input">
-          <p>Select Schedule</p>
+          <p (click)="getCalender()">Select Schedule</p>
         </div>
-      
+
       </div>
 
       <div class="trackBox">
         <div class="icon">
           <label class="checkbox">
-            <input type="checkbox" checked="checked">
+            <input type="checkbox" [(ngModel)]="sessionModel.Is_autostart" checked="checked">
             <span class="checkmark"></span>
           </label>
         </div>
@@ -43,14 +44,14 @@
           <p>Auto start</p>
         </div>
         <div class="more ml-auto">
-          <a><img src="./assets/images/icons/more.svg" alt="More"/></a>
+          <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
         </div>
       </div>
 
       <div class="trackBox">
         <div class="icon">
           <label class="checkbox">
-            <input type="checkbox" checked="checked">
+            <input type="checkbox" [(ngModel)]="sessionModel.Is_public" checked="checked">
             <span class="checkmark"></span>
           </label>
         </div>
@@ -58,7 +59,7 @@
           <p>Public</p>
         </div>
         <div class="more ml-auto">
-          <a><img src="./assets/images/icons/more.svg" alt="More"/></a>
+          <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
         </div>
       </div>
     </div>
@@ -66,7 +67,7 @@
 
   <div class="inputContainer">
     <label>Description <span>(required only for public events)</span></label>
-    <textarea placeholder="Enter the lines about the session"></textarea>
+    <textarea placeholder="Enter the lines about the session" [(ngModel)]="sessionModel.session_desc"></textarea>
   </div>
 
   <div class="inputContainer">
@@ -80,10 +81,10 @@
         <img src="./assets/images/icons/cloud.svg" width="36" alt="cloud" />
       </div>
       <div class="input">
-        <input type="text" placeholder="Load from UNIFY CLOUD"/>
+        <input type="text" placeholder="Load from UNIFY CLOUD" />
       </div>
       <div class="more ml-auto">
-        <a><img src="./assets/images/icons/more.svg" alt="More"/></a>
+        <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
       </div>
     </div>
     <p class="text-center">Or</p>
@@ -92,10 +93,10 @@
         <img src="./assets/images/icons/phone.svg" width="36" alt="cloud" />
       </div>
       <div class="input">
-        <input type="text" placeholder="Let participants load track"/>
+        <input type="text" placeholder="Let participants load track" readonly (click)="getLoadTrackPage()" />
       </div>
       <div class="more ml-auto">
-        <a><img src="./assets/images/icons/more.svg" alt="More"/></a>
+        <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
       </div>
     </div>
   </div>
@@ -103,27 +104,28 @@
     <label>Comments</label>
     <div class="addComment d-flex">
       <div class="userProfile">
-        <img src="./assets/images/profile.png"  alt="user" />
+        <img src="./assets/images/profile.png" alt="user" />
       </div>
       <div class="inputField" style="padding-left:24px;">
-        <input type="text" placeholder="Add Comment"/>
+        <input type="text" placeholder="Add Comment" />
       </div>
     </div>
   </div>
 
   <div class="bottomBtn d-flex">
     <div class="back ">
-      <img src="./assets/images/icons/back.svg" width="18" alt="back"/>
+      <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
     </div>
     <div class="previewBtn ml-auto">
-      <button type="button">Preview</button>
+      <button type="button" (click)="getPreviewPage()">Preview</button>
     </div>
   </div>
 </div> <!--  Add session Ends  -->
 
 
 <!-- PREVIEW -->
-<div class="addSessions" *ngIf="false"> <!-- PREVIEW Starts Here -->
+<div class="addSessions" *ngIf="!createSessionFlag&&!datetimeFlag&&previewPageFlag&&!loadTrackFlag">
+  <!-- PREVIEW Starts Here -->
   <div class="inputContainer">
     <h2>Space time meditation, one of the best out there!</h2>
   </div>
@@ -131,13 +133,13 @@
   <div class="hostDetail">
     <div class="bannerImg">
       <div class="imgCont">
-        <img src="./assets/images/session.png" style="opacity: 1; object-fit: cover;" width="40" alt="img"/>
+        <img src="./assets/images/session.png" style="opacity: 1; object-fit: cover;" width="40" alt="img" />
       </div>
     </div>
     <div class="details">
       <div class="prodetails">
         <div class="proImg">
-          <img src="./assets/images/profile.png" alt="profile"/>
+          <img src="./assets/images/profile.png" alt="profile" />
         </div>
         <div class="proText">
           <label>Hosted by</label>
@@ -145,37 +147,37 @@
         </div>
       </div>
 
-     
+
 
       <div class="trackBox">
-        
+
         <div class="input">
-          <p>3 Feb 2020, 20:00 hrs<br/>(in 2 days)</p>
+          <p>3 Feb 2020, 20:00 hrs<br />(in 2 days)</p>
         </div>
         <div class="more ml-auto">
-          <a><img src="./assets/images/icons/more.svg" alt="More"/></a>
+          <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
         </div>
       </div>
 
       <div class="trackBox" style="margin-top:0px;">
-        
+
         <div class="input">
           <p>Duration : 1 hr</p>
         </div>
         <div class="more ">
-          <a><img src="./assets/images/icons/replay.svg" alt="More"/></a>
-          <a><img src="./assets/images/icons/group.svg" alt="More"/></a>
+          <a><img src="./assets/images/icons/replay.svg" alt="More" /></a>
+          <a><img src="./assets/images/icons/group.svg" alt="More" /></a>
         </div>
       </div>
 
 
       <div class="trackBox">
-        
+
         <div class="input">
           <p>Event invitation link</p>
         </div>
         <div class="more ml-auto">
-          <a><img src="./assets/images/icons/share.svg" alt="More"/></a>
+          <a><img src="./assets/images/icons/share.svg" alt="More" /></a>
         </div>
       </div>
     </div>
@@ -183,47 +185,47 @@
 
   <div class="inputContainer">
     <div class="d-flex">
-      <label >Description </label >
+      <label>Description </label>
       <div class="more ml-auto">
-        <a><img src="./assets/images/icons/more.svg" alt="More"/></a>
+        <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
       </div>
     </div>
-    <p>Space time meditation one of the best out there another sentence to add some desctiprion about 
+    <p>Space time meditation one of the best out there another sentence to add some desctiprion about
       the event and have some text till the end of this...
     </p>
   </div>
 
   <div class="inputContainer">
     <div class="d-flex">
-      <label >Participants </label >
+      <label>Participants </label>
       <div class="more ml-auto">
-        <a><img src="./assets/images/icons/more.svg" alt="More"/></a>
+        <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
       </div>
     </div>
 
     <div class="proPicCont">
       <div class="profImgCont">
-        <img src="./assets/images/proimg1.svg" width="50" alt="Profile"/>
+        <img src="./assets/images/proimg1.svg" width="50" alt="Profile" />
         <p>Anna</p>
       </div>
       <div class="profImgCont">
-        <img src="./assets/images/proimg2.svg" width="50" alt="Profile"/>
+        <img src="./assets/images/proimg2.svg" width="50" alt="Profile" />
         <p>Mark</p>
       </div>
 
       <div class="profImgCont">
-        <img src="./assets/images/proimg3.svg" width="50" alt="Profile"/>
+        <img src="./assets/images/proimg3.svg" width="50" alt="Profile" />
         <p>John</p>
       </div>
       <div class="profImgCont">
-        <img src="./assets/images/proimg4.svg" width="50" alt="Profile"/>
+        <img src="./assets/images/proimg4.svg" width="50" alt="Profile" />
         <p>Peter</p>
       </div>
       <div class="profImgCont">
-        <img src="./assets/images/proimg5.svg" width="50" alt="Profile"/>
+        <img src="./assets/images/proimg5.svg" width="50" alt="Profile" />
         <p>Jen</p>
       </div>
-      
+
 
     </div>
   </div>
@@ -237,51 +239,52 @@
         <p>Space time & time space.mp3</p>
       </div>
       <div class="more ml-auto">
-        <a style="position: relative; top:-8px;"><img src="./assets/images/icons/more.svg" alt="More"/></a>
+        <a style="position: relative; top:-8px;"><img src="./assets/images/icons/more.svg" alt="More" /></a>
       </div>
     </div>
-    
+
   </div>
   <div class="comments">
     <label>Comments</label>
     <div class="addComment d-flex">
       <div class="proSec">
         <div class="userProfile">
-          <img src="./assets/images/profile.png"  alt="user" />
+          <img src="./assets/images/profile.png" alt="user" />
         </div>
         <p>Peter</p>
       </div>
       <div class="inputField" style="padding-left:24px;">
-        <p >Looking forward to it guys!</p>
+        <p>Looking forward to it guys!</p>
       </div>
     </div>
 
     <div class="addComment d-flex">
       <div class="userProfile">
-        <img src="./assets/images/profile.png"  alt="user" />
-        
+        <img src="./assets/images/profile.png" alt="user" />
+
       </div>
       <div class="inputField" style="padding-left:24px;">
-        <input type="text" placeholder="Add Comment"/>
+        <input type="text" placeholder="Add Comment" />
       </div>
     </div>
   </div>
 
   <div class="bottomBtn d-flex">
     <div class="back ">
-      <img src="./assets/images/icons/back.svg" width="18" alt="back"/>
+      <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
     </div>
     <div class="previewBtn ml-auto">
       <button type="button">Host!</button>
     </div>
   </div>
-</div>  <!-- PREVIEW Ends Here -->
+</div> <!-- PREVIEW Ends Here -->
 
 
 
 
 <!-- Calendar -->
-<div class="calendarCont"> <!-- Calender Starts -->
+<div class="calendarCont" *ngIf="!createSessionFlag&&datetimeFlag&&!previewPageFlag&&!loadTrackFlag">
+  <!-- Calender Starts -->
   <div class="scheduleTime">
     <h5>Select schedule</h5>
     <p class="chooseDate">
@@ -297,8 +300,8 @@
     <div class="timeSelect">
       <div class="startAndEndTime">
         <a class="timeL">05:00 AM</a>
-        <div class="clock"><span><img src="./assets/images/icons/clock.svg" width="20" alt="Clock"/></span></div>
-        <a  class="timeR">06:00 AM</a>
+        <div class="clock"><span><img src="./assets/images/icons/clock.svg" width="20" alt="Clock" /></span></div>
+        <a class="timeR">06:00 AM</a>
       </div>
 
       <div class="line">
@@ -311,7 +314,7 @@
         <label class="lblRight ml-auto">Session end time</label>
       </div>
     </div>
-    <p class="meanTime"><img src="./assets/images/icons/globe.svg" width="21" alt="Globe"/> Greenwich Mean Time</p>
+    <p class="meanTime"><img src="./assets/images/icons/globe.svg" width="21" alt="Globe" /> Greenwich Mean Time</p>
     <label class="checkbox">Does not repeat
       <input type="checkbox" checked="checked">
       <span class="checkmark"></span>
@@ -361,6 +364,22 @@
     </div>
   </div>
   <div class="grayBtn">
-    <button type="button">Done</button>
+    <button type="button" (click)="closeCalender()">Done</button>
   </div>
 </div> <!-- Calender Ends -->
+
+<!--  Participant Load Track  -->
+<div class="participants" *ngIf="!createSessionFlag&&!datetimeFlag&&!previewPageFlag&&loadTrackFlag">
+  <div class="partText">
+    <h2>Let participants load their own track</h2>
+    <p>With this option, participants can select a meditation track from their device and the app will play this track
+      when the session starts.</p>
+    <p>To make sure everyone is using the same track, please type in the name of the track you'd like them to use:</p>
+    <div class="trackName">
+      <input type="file" accept="audio/*" placeholder="Enter suggested track name" />
+    </div>
+  </div>
+  <div class="grayBtn">
+    <button type="button" (click)="closeCalender()">Done</button>
+  </div>
+</div>
