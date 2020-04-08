@@ -1,3 +1,48 @@
+<!-- Invite Participant -->
+<div class="inviteParticipants" *ngIf="true">
+    <div class="partText">
+      <div class="trackName">
+        <!-- <input type="text" placeholder="Enter suggested track name"/>  -->
+        <mat-form-field>
+          <mat-label>Enter name of the participants</mat-label>
+          <mat-select [formControl]="toppings" multiple>
+            <mat-select-trigger>
+              {{toppings.value ? toppings.value[0] : ''}}
+              <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
+                (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
+              </span>
+            </mat-select-trigger>
+            <mat-option *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <p>Note: If you cannot find the person you want to invite, you can send them an event link AFTER you host your session. See sample image below to note where the link will be available...</p>
+      <div class="text-center"><img src="./assets/images/inviteParticipants.png"  alt="Invite Participants"/></div>
+    </div>
+    <div class="grayBtn">
+      <button type="button">Done</button>
+    </div>
+  </div>
+
+
+
+<!--  Participant Load Track  -->
+<div class="participants" *ngIf="!createSessionFlag&&!datetimeFlag&&!previewPageFlag&&loadTrackFlag">
+  <div class="partText">
+    <h2>Let participants load their own track</h2>
+    <p>With this option, participants can select a meditation track from their device and the app will play this track
+      when the session starts.</p>
+    <p>To make sure everyone is using the same track, please type in the name of the track you'd like them to use:</p>
+    <div class="trackName">
+      <input type="file" accept="audio/*" placeholder="Enter suggested track name" />
+    </div>
+  </div>
+  <div class="grayBtn">
+    <button type="button" (click)="closeCalender()">Done</button>
+  </div>
+</div>
+
+
 <!--  ADD SESSION  -->
 <div class="addSessions" *ngIf="createSessionFlag&&!datetimeFlag&&!previewPageFlag&&!loadTrackFlag">
   <!--  Add session Starts  -->
@@ -368,18 +413,3 @@
   </div>
 </div> <!-- Calender Ends -->
 
-<!--  Participant Load Track  -->
-<div class="participants" *ngIf="!createSessionFlag&&!datetimeFlag&&!previewPageFlag&&loadTrackFlag">
-  <div class="partText">
-    <h2>Let participants load their own track</h2>
-    <p>With this option, participants can select a meditation track from their device and the app will play this track
-      when the session starts.</p>
-    <p>To make sure everyone is using the same track, please type in the name of the track you'd like them to use:</p>
-    <div class="trackName">
-      <input type="file" accept="audio/*" placeholder="Enter suggested track name" />
-    </div>
-  </div>
-  <div class="grayBtn">
-    <button type="button" (click)="closeCalender()">Done</button>
-  </div>
-</div>

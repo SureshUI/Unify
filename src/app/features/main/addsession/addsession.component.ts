@@ -1,7 +1,9 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { FormControl } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
 import { MainService } from '../main.service';
 import { Router } from '@angular/router';
-import { FormControl } from '@angular/forms';
+
 @Component({
   selector: 'app-addsession',
   templateUrl: './addsession.component.html',
@@ -16,6 +18,9 @@ export class AddsessionComponent implements OnInit {
   public datetimeFlag = false;
   public loadTrackFlag = false;
   public participantsList = [];
+
+  toppings = new FormControl();
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
   constructor(private service: MainService, public router: Router) { }
 
