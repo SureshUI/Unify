@@ -4,13 +4,15 @@ import { MatSelectModule } from '@angular/material/select';
 import { MainService } from '../main.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import * as moment from 'moment';
 
 
 @Component({
   selector: 'app-addsession',
   templateUrl: './addsession.component.html',
   styleUrls: ['./addsession.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  providers: [DatePipe]
 })
 export class AddsessionComponent implements OnInit {
   public participantList = [];
@@ -25,9 +27,11 @@ export class AddsessionComponent implements OnInit {
   toppings = new FormControl();
   pipe = new DatePipe('en-US');
   now = Date.now();
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
-
-  constructor(private service: MainService, public router: Router) { }
+  // toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  public currentDate: any;
+  constructor(private service: MainService, public router: Router, private datePipe: DatePipe) {
+    this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+  }
 
   ngOnInit() {
     this.getProfileDetails();
@@ -49,7 +53,12 @@ export class AddsessionComponent implements OnInit {
     this.datetimeFlag = false;
     this.loadTrackFlag = false;
     this.participantsLisPageFlag = false;
-    console.log("sessionModel", this.sessionModel);
+    // console.log("sessionModel", this.sessionModel);
+    var start_datetime = moment(this.datePipe.transform(this.sessionModel["start_datetime"], 'yyyy-MM-dd'));
+    var curDate = moment(this.currentDate);
+
+    var days = Math.abs(start_datetime.diff(curDate, 'days'));
+    this.sessionModel["days"] = days;
 
   }
 

@@ -1,30 +1,47 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainService } from '../main.service';
 import { DatePipe } from '@angular/common';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-mysessions',
   templateUrl: './mysessions.component.html',
   styleUrls: ['./mysessions.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  providers: [DatePipe]
 })
 export class MysessionsComponent implements OnInit {
-
-  constructor(private service: MainService, public router: Router) { }
   public sessionLists = [];
-  public currentDate = new Date();
+  public currentDate: any;
+  constructor(private service: MainService, public router: Router, private datePipe: DatePipe) {
+    this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+  }
+
 
   ngOnInit() {
     this.getMySessions();
+    // this.currentDate = this.datePipe.transform(this.myDate, 'yyyy-MM-dd');
 
   }
 
   getMySessions() {
     let userId = localStorage.getItem("userId");
+
     this.service.getMySessionList(userId).subscribe(res => {
-      this.sessionLists = res.response.result;
-      console.log("this.sessionLists", res.response.result);
+      // this.sessionLists = res.response.result;
+      for (var i = 0; i < res.response.result.length; i++) {
+        // let sessionModel = {};
+        let session = res.response.result[i];
+        var start_datetime = moment(this.datePipe.transform(session["start_datetime"], 'yyyy-MM-dd'));
+        var curDate = moment(this.currentDate);
+
+        var days = Math.abs(start_datetime.diff(curDate, 'days'));
+        session["days"] = days;
+        this.sessionLists.push(session);
+
+      }
+      console.log(this.sessionLists);
+      // console.log("this.sessionLists", res.response.result);
     }, (error) => {
       //Error callback
     });

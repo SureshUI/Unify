@@ -204,7 +204,7 @@
       <div class="trackBox">
 
         <div class="input">
-          <p>{{sessionModel.start_datetime| date: 'dd/MM/yyyy'}}<br />(in 2 days)</p>
+          <p>{{sessionModel.start_datetime| date: 'dd/MM/yyyy'}}<br />(in {{sessionModel.days}} days)</p>
         </div>
         <div class="more ml-auto">
           <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
@@ -369,7 +369,8 @@
         <label class="lblRight ml-auto">Session end time</label>
       </div>
     </div>
-    <p class="meanTime"><img src="./assets/images/icons/globe.svg" width="21" alt="Globe" /> Greenwich Mean Time</p>
+    <p class="meanTime"><img src="./assets/images/icons/globe.svg" width="21" alt="Globe" /> Greenwich Mean Time
+    </p>
     <label class="checkbox">Does not repeat
       <input type="checkbox" checked="checked">
       <span class="checkmark"></span>
