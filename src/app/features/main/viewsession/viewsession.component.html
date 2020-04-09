@@ -1,0 +1,202 @@
+
+<!-- View Session -->
+<div class="viewSessions">
+  <!-- PREVIEW Starts Here -->
+  <div class="inputContainer">
+    <h2>Space time meditation, one of the best out there!</h2>
+  </div>
+
+  <div class="hostDetail">
+    <div class="bannerImg">
+      <div class="imgCont">
+        <img src="./assets/images/session.png" style="opacity: 1; object-fit: cover;" width="40" alt="img" />
+      </div>
+    </div>
+    <div class="details">
+      <div class="prodetails">
+        <div class="proImg">
+          <img src="./assets/images/profile.png" alt="profile" />
+        </div>
+        <div class="proText">
+          <label>Hosted by</label>
+          <p>{{profileDetails?profileDetails.first_name:'NA'}}</p>
+        </div>
+      </div>
+
+
+
+      <div class="trackBox">
+
+        <div class="input">
+          <p>{{sessionModel.start_datetime| date: 'dd/MM/yyyy'}}<br />(in 2 days)</p>
+        </div>
+        <div class="more ml-auto">
+          <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
+        </div>
+      </div>
+
+      <div class="trackBox" style="margin-top:0px;">
+
+        <div class="input">
+          <p>Duration : 1 hr</p>
+        </div>
+        <div class="more ">
+          <a><img src="./assets/images/icons/replay.svg" alt="More" /></a>
+          <a><img src="./assets/images/icons/group.svg" alt="More" /></a>
+        </div>
+      </div>
+
+
+      <div class="trackBox">
+
+        <div class="input">
+          <p>Event invitation link</p>
+        </div>
+        <div class="more ml-auto">
+          <a><img src="./assets/images/icons/share.svg" alt="More" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inputContainer">
+    <div class="d-flex">
+      <label>Description </label>
+      <div class="more ml-auto">
+        <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
+      </div>
+    </div>
+    <!-- <p>Space time meditation one of the best out there another sentence to add some desctiprion about
+      the event and have some text till the end of this...
+    </p> -->
+    <p>{{sessionModel.session_desc}}</p>
+  </div>
+
+  <div class="inputContainer">
+    <div class="d-flex">
+      <label>Participants </label>
+      <div class="more ml-auto">
+        <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
+      </div>
+    </div>
+
+    <div class="proPicCont">
+      <div class="profImgCont">
+        <img src="./assets/images/proimg1.svg" width="50" alt="Profile" />
+        <p>Anna</p>
+      </div>
+      <div class="profImgCont">
+        <img src="./assets/images/proimg2.svg" width="50" alt="Profile" />
+        <p>Mark</p>
+      </div>
+
+      <div class="profImgCont">
+        <img src="./assets/images/proimg3.svg" width="50" alt="Profile" />
+        <p>John</p>
+      </div>
+      <div class="profImgCont">
+        <img src="./assets/images/proimg4.svg" width="50" alt="Profile" />
+        <p>Peter</p>
+      </div>
+      <div class="profImgCont">
+        <img src="./assets/images/proimg5.svg" width="50" alt="Profile" />
+        <p>Jen</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="meditationTrack">
+    <label>Meditation track</label>
+    <div class="trackBox" style="margin-top:10px;">
+      <div class="icon" style="width:70px;padding-right:10px;">
+        <img src="./assets/images/meditation.svg" width="60" alt="cloud" />
+      </div>
+      <div class="input">
+        <!-- <p>Space time & time space.mp3</p> -->
+        <p>{{sessionModel.particpants_suggestion}}</p>
+      </div>
+      <div class="more ml-auto">
+        <a style="position: relative; top:-8px;"><img src="./assets/images/icons/more.svg" alt="More" /></a>
+      </div>
+    </div>
+
+  </div>
+  <div class="comments">
+    <label>Comments</label>
+    <div class="addComment d-flex">
+      <div class="proSec">
+        <div class="userProfile">
+          <img src="./assets/images/profile.png" alt="user" />
+        </div>
+        <p>Peter</p>
+      </div>
+      <div class="inputField" style="padding-left:24px;">
+        <p>Looking forward to it guys!</p>
+      </div>
+    </div>
+
+    <div class="addComment d-flex">
+      <div class="userProfile">
+        <img src="./assets/images/profile.png" alt="user" />
+
+      </div>
+      <div class="inputField" style="padding-left:24px;">
+        <input type="text" placeholder="Add Comment" />
+      </div>
+    </div>
+  </div>
+
+  <div class="bottomBtn d-flex" *ngIf="false">  <!--Decline and Accept Button-->
+    <div class="back ">
+      <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
+    </div>
+    <div class="previewBtn ml-auto">
+      <button type="button" class="btnRed">Decline</button>
+    
+      <button type="button" class="btnGreen">Accept</button>
+    </div>
+  </div>
+
+
+  <div class="bottomBtn d-flex" *ngIf="false">  <!--Declined and Re-join Button-->
+    <div class="back ">
+      <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
+    </div>
+    <div class="previewBtn ml-auto">
+      <button type="button" class="btnTransp">You've declined</button>
+    
+      <button type="button" class="btnGreen">Re-join</button>
+    </div>
+  </div>
+
+  <div class="bottomBtn d-flex" *ngIf="true">  <!--Cancel and join Button-->
+    <div class="back ">
+      <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
+    </div>
+    <div class="previewBtn ml-auto">
+      <button type="button" class="btnWhite">Cancel</button>
+    
+      <!-- <button type="button" class="btnWhite textWhite">Join!</button> -->
+      <button type="button" class="btnGreen">Join!</button>
+      <!-- <button type="button" class="btnTransp">Joined</button> -->
+    </div>
+  </div>
+
+  <div class="calcelPopup" *ngIf="false">
+    <h6>Are you sure you want to cancel?</h6>
+    <p>If you cannot attend the session anymore, you can cancel... we are sorry you cannot make it!</p>
+    <button>Cancel</button>
+    <a>Close</a>
+  </div>
+
+  <div class="welcomePopup" *ngIf="true">
+    <h6>Welcome early bird!</h6>
+    <p>You can join the session up to 5 minutes before the scheduled start time.</p>
+    <p>The app will notify you when it is time to join, You can change these notifications under 'Settings'. </p>
+    <a>Close</a>
+  </div>
+
+
+</div> <!-- PREVIEW Ends Here -->
+

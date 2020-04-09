@@ -5,6 +5,7 @@ import { HomeComponent } from './home/home.component';
 import { MysessionsComponent } from './mysessions/mysessions.component';
 import { ExploreComponent } from './explore/explore.component';
 import { AddsessionComponent } from './addsession/addsession.component';
+import { ViewsessionComponent } from './viewsession/viewsession.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,10 @@ const routes: Routes = [
         component: AddsessionComponent
       },
       {
+        path: 'viewsession',
+        component: ViewsessionComponent
+      },
+      {
         path: 'explore',
         component: ExploreComponent
       }
@@ -43,4 +48,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class MainRoutingModule { }
-export const MainRoutingComponents = [MainComponent, HomeComponent, MysessionsComponent, ExploreComponent, AddsessionComponent];
+export const MainRoutingComponents = [MainComponent, HomeComponent, MysessionsComponent, ExploreComponent, AddsessionComponent, ViewsessionComponent];

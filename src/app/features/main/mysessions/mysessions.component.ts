@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { MainService } from '../main.service';
 import { DatePipe } from '@angular/common';
@@ -6,7 +6,8 @@ import { DatePipe } from '@angular/common';
 @Component({
   selector: 'app-mysessions',
   templateUrl: './mysessions.component.html',
-  styleUrls: ['./mysessions.component.scss']
+  styleUrls: ['./mysessions.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class MysessionsComponent implements OnInit {
 
