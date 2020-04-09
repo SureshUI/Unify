@@ -1,6 +1,7 @@
 .viewSessions{
   padding:7px 20px;
-
+  position:relative;
+  z-index:8;
   .hostDetail{
     display: flex;
     margin-bottom:30px;
@@ -114,6 +115,149 @@
       }
     }
   }
+
+  .selectTrackPopup{
+    height:auto;
+    min-height:100px;
+    bottom:80px;
+    position: fixed;
+    background-color: #dcdcdc;
+    width:calc(100% - 80px);
+    left:40px;
+    border-radius:14px;
+    padding:30px;
+    color:#000000;
+    text-align:center;
+    h6{
+      font-size:18px;
+    }
+    p{
+      text-align: left;
+      line-height: 18px;
+      margin-top:20px;
+    }
+    .loadTrack{
+      display:flex;
+      .headphone{
+        a{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: #949090;
+          width:50px;
+          height: 50px;
+        }
+        padding-right:5px;
+      }
+      .ltDevice{
+        flex:1 1;
+        height:50px;
+        background-color: #a6a3a3;  
+        text-align:center;
+        font-size:13px;
+        line-height:16px;
+        padding-top:10px;
+        position: relative;
+        color:#FFFFFF;
+        img{
+          position: absolute;
+          left:4px;
+          top:13px;
+        } 
+      }
+    }
+  }
+
+  .sharePopup{
+    height:auto;
+    min-height:100px;
+    bottom:100px;
+    position: fixed;
+    background-color: #dcdcdc;
+    width:calc(100% - 80px);
+    left:40px;
+    border-radius:14px;
+    padding:20px 12px;
+    color:#000000;
+    text-align:center;
+    h6{
+      font-size:18px;
+    }
+    p{
+      text-align: center;
+      line-height: 18px;
+      margin-top:20px;
+    }
+
+    input{
+      width:100%;
+      background-color: #eaeaea;
+      height:40px;
+      border:none;
+      border-radius:3px;
+      padding-left:15px;
+      margin-top:10px;
+      margin-bottom:15px;
+    }
+    .shareIconCont{
+      display: flex;
+      flex-wrap: wrap;
+      margin-top:20px;
+      .socIcons{
+        width:33.3%;
+        height:70px;
+        margin-bottom:20px;
+        text-align:center;
+        img{}
+        p{
+          margin:8px 0px 0px;
+          font-size:14px;
+        }
+      }
+    }
+
+  }
+  .schedulePopup{
+    height:auto;
+    min-height:100px;
+    bottom:100px;
+    position: fixed;
+    background-color: #dcdcdc;
+    width:calc(100% - 80px);
+    left:40px;
+    border-radius:14px;
+    padding:20px 30px;
+    color:#000000;
+    text-align:center;
+    h6{
+      font-size:18px;
+    }
+    p{
+      text-align: left;
+      line-height: 18px;
+      margin-top:20px;
+    }
+    .schBox{
+      display: flex;  
+      align-items: center;
+      .schIco{
+        width:44px;
+        height:44px;
+        border-radius:22px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #000000;
+        
+      }
+      p{
+        padding-left:10px;
+        font-size:14px;  
+        margin:10px 0px; 
+      }
+    }
+  }
+
 
   .welcomePopup{
     height:auto;

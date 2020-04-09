@@ -144,6 +144,9 @@
       <div class="inputField" style="padding-left:24px;">
         <input type="text" placeholder="Add Comment" />
       </div>
+      <div class="d-flex align-items-center justift-content-center" style="padding-left:10px;">
+        <a><img src="./assets/images/icons/send.svg" width="30" alt="send"/></a>
+      </div>
     </div>
   </div>
 
@@ -190,13 +193,87 @@
     <a>Close</a>
   </div>
 
-  <div class="welcomePopup" *ngIf="true">
+  <div class="welcomePopup" *ngIf="false">
     <h6>Welcome early bird!</h6>
     <p>You can join the session up to 5 minutes before the scheduled start time.</p>
     <p>The app will notify you when it is time to join, You can change these notifications under 'Settings'. </p>
     <a>Close</a>
   </div>
 
+  <div class="selectTrackPopup" *ngIf="false">
+    <h6>Please select track</h6>
+    <p>Your host has requested you to load the track from your device.</p>
+    <p>The suggested track is 'Time Space & Space Time'. </p>
+    <div class="loadTrack">
+      <div class="headphone">
+        <a><img src="./assets/images/icons/headset.png" width="30" alt="Headphone"/></a>
+      </div>
+      <div class="ltDevice">
+        <img src="./assets/images/icons/phone.svg" width="25" alt="Phone"/>
+        Load track from<br/>your device
+      </div>
+    </div>
+    <p>Note: Only you will listen to this track and it will NOT be shared with anyone else in the session.</p>
+    <a>Close</a>
+  </div>
+
+
+
+  <div class="schedulePopup" *ngIf="false">
+    <h6>Schedule</h6>
+    <p>Date: 3rd February 2020.</p>
+    <p>Time: 20:00 GMT. </p>
+    <p>Duration: 1 hour</p>
+    <p>Repeat: none</p>
+    <div class="schBox">
+      <div class="schIco"><img src="./assets/images/icons/replay.svg" width="60" alt="Icon"/></div>
+      <p>If you see this symbol, it means that auto-play is enabled. The event will automatically start exactly at the time shown. </p>
+    </div>
+
+    <div class="schBox">
+      <div class="schIco"><img src="./assets/images/icons/replay.svg" width="60" alt="Icon"/></div>
+      <p>If you see this symbol, it means the event is 'public'. Anyone can find the event and join. </p>
+    </div>
+    <a>Close</a>
+  </div>
+
+  <div class="sharePopup" *ngIf="true">
+    <h6>Share event</h6>
+    <input type="text" placeholder="https://url.com/event12345/" />
+    <div class="shareIconCont">
+      <div class="socIcons">
+        <img src="./assets/images/icons/copy.svg" width="30" alt="Copy"/>
+        <p>Copy URL</p>
+      </div>
+
+      <div class="socIcons">
+        <img src="./assets/images/icons/whatsapp.svg" width="30" alt="Copy"/>
+        <p>WhatsApp</p>
+      </div>
+
+      <div class="socIcons">
+        <img src="./assets/images/icons/gmail.svg" width="30" alt="Copy"/>
+        <p>Mail</p>
+      </div>
+
+      <div class="socIcons">
+        <img src="./assets/images/icons/facebook.svg" width="30" alt="Copy"/>
+        <p>Facebook</p>
+      </div>
+
+      <div class="socIcons">
+        <img src="./assets/images/icons/twitter.svg" width="30" alt="Copy"/>
+        <p>Twitter</p>
+      </div>
+
+      <div class="socIcons">
+        <img src="./assets/images/icons/outlook.svg" width="30" alt="Copy"/>
+        <p>Outlook</p>
+      </div>
+
+    </div>
+    <a>Close</a>
+  </div>
 
 </div> <!-- PREVIEW Ends Here -->
 
