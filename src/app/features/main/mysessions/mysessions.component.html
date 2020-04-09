@@ -15,33 +15,35 @@
     </div>
   </div>
 
-
-  <div class="sesBox">
-    <div class="imgCont">
-      <img src="./assets/images/session.png" alt="img" />
-    </div>
-    <div class="sesInfo">
-      <p>Space time meditation, one of the best out there!</p>
-      <div class="proDet">
-        <div class="userPro">
-          <img src="./assets/images/profile2.png" alt="Profile" />
+  <div *ngFor="let session of sessionLists">
+    <div class="sesBox">
+      <div class="imgCont">
+        <img src="./assets/images/session.png" alt="img" />
+      </div>
+      <div class="sesInfo">
+        <p>{{session.session_desc}}</p>
+        <div class="proDet">
+          <div class="userPro">
+            <img src="./assets/images/profile2.png" alt="Profile" />
+          </div>
+          <p>Hosted by<br /><span>{{session.hosted_name}}</span></p>
         </div>
-        <p>Hosted by<br /><span>Mark</span></p>
-      </div>
-      <p class="noMargin">3 Feb 2020, 20:00 hrs</p>
-      <span>(in 2 days)</span>
+        <p class="noMargin">{{session.start_datetime | date: 'dd/MM/yyyy'}}</p>
+        <span>(in {{session.start_datetime-currentDate}} days)</span>
 
-      <div class="inviLink">
-        <a>
-          <img src="./assets/images/icons/heart.svg" width="14" alt="Invitation" />
-          Accept Invitation
-        </a>
+        <div class="inviLink">
+          <a>
+            <img src="./assets/images/icons/heart.svg" width="14" alt="Invitation" />
+            Accept Invitation
+          </a>
+        </div>
       </div>
     </div>
+
   </div>
 
 
-  <div class="sesBox">
+  <!-- <div class="sesBox">
     <div class="imgCont">
       <img src="./assets/images/session2.png" alt="img" />
     </div>
@@ -88,7 +90,7 @@
         </a>
       </div>
     </div>
-  </div>
+  </div> -->
 
 
 </div>

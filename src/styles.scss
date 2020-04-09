@@ -131,3 +131,50 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     left: 15px;
   }
 }
+
+
+.repeats{
+  label{
+    border-radius:50%;
+    background-color: #FFFFFF !important;
+  }
+  .checkmark{
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 15px !important;
+    background-color: transparent !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border:none !important;
+    position:relative !important;
+  }
+  .checkbox{
+    padding:0px !important;
+    width:26px;
+    height:26px;
+    .letter{
+      position:absolute;
+      z-index:4;
+      left:7px;
+      top:0px;
+    }
+  }
+ 
+  .checkmark:after{
+    width: 26px !important;
+    height: 26px !important;
+    border-radius: 15px !important;
+     background-color: rgba(0,0,0,0.35) !important;
+    // display: flex !important;
+    // align-items: center !important;
+    // justify-content: center !important;
+    // border:none !important;
+    left:0px !important;
+    top:-3px !important;
+    border:none !important;
+    
+  }
+
+  
+}

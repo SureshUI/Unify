@@ -19,7 +19,7 @@ export class MainService {
     this.apiURL = AppConfig.urls.base;
   }
   public getProfileDetails(id): Observable<any> {
-    return this.http.get(this.apiURL + '/user/profile/' + id, this.httpOptions).pipe(
+    return this.http.get(this.apiURL + '/user/profile/' + id + '/', this.httpOptions).pipe(
       map((response) => {
         return response;
       })
@@ -32,15 +32,21 @@ export class MainService {
       })
     );
   }
-  public getsessionList(data): Observable<any> {
+  public saveSession(data): Observable<any> {
     return this.http
-      .post(this.apiURL + "/user/resetpasswordtoken/", data, this.httpOptions)
+      .post(this.apiURL + "/sessions/create", data, this.httpOptions)
       .pipe(
         map(res => {
-
           return JSON.stringify(res);
         })
       )
+  }
+  public getMySessionList(id): Observable<any> {
+    return this.http.get(this.apiURL + '/sessions/sessionlist/' + id, this.httpOptions).pipe(
+      map((response) => {
+        return response;
+      })
+    );
   }
 
 }
