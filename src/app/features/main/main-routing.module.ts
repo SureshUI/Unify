@@ -48,4 +48,5 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class MainRoutingModule { }
-export const MainRoutingComponents = [MainComponent, HomeComponent, MysessionsComponent, ExploreComponent, AddsessionComponent, ViewsessionComponent];
+export const MainRoutingComponents = [MainComponent, HomeComponent, MysessionsComponent, 
+  ExploreComponent, AddsessionComponent, ViewsessionComponent];

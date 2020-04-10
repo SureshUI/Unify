@@ -150,6 +150,43 @@
     </div>
   </div>
 
+
+
+  <!-- Med Track -->
+<div class="medTrack">
+<div class="partText">
+  <div class="trackName">
+   <h6>This track is from our unify CLOUD!</h6>
+  </div>
+  <p>Fantastic news, your host has selected a track from our cloud!</p>
+  <p>We will sync the track to your app so that you can meditate even in flight mode.</p>
+  <p>Please note the following  symbols next to the track name.</p>
+
+  <div class="notes">
+    <div class="iconsCont">
+      <a><img src="./assets/images/cloudcheck.png" width="40" height="40" alt="Cloud Success"/></a>
+    </div>
+    <div class="notesText">
+      <p>This symbol means the track has been successfully synced to the app and you are all set.</p>
+    </div>
+  </div>
+
+  <div class="notes">
+    <div class="iconsCont">
+      <a><img src="./assets/images/clouddanger.png"  width="40" height="40" alt="Cloud Success"/></a>
+    </div>
+    <div class="notesText">
+      <p>This symbol means the track has NOT been synced. Check your internet connection and make sure that you have un-checked the 'Wait for Wi-Fi before syncing tracks' option in Settings.</p>
+    </div>
+  </div>
+
+</div>
+<div class="grayBtn">
+  <button type="button" >Done</button>
+</div>
+</div>
+
+
   <div class="bottomBtn d-flex" *ngIf="false">  <!--Decline and Accept Button-->
     <div class="back ">
       <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
@@ -237,7 +274,7 @@
     <a>Close</a>
   </div>
 
-  <div class="sharePopup" *ngIf="true">
+  <div class="sharePopup" *ngIf="false">
     <h6>Share event</h6>
     <input type="text" placeholder="https://url.com/event12345/" />
     <div class="shareIconCont">
