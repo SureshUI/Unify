@@ -108,3 +108,41 @@
     p{color:#FFFFFF; text-align:center; font-size: 18px; text-align: center; font-weight: 200; letter-spacing:1px;}
   }
 }
+
+
+
+
+.pageFooter{
+  position: fixed;
+  background-color: rgba(0,0,0,0.75);
+  width:100%;
+  height:60px;
+  bottom:0px;
+  left:0px;
+  display: flex;
+  
+  .tabBox{
+    flex:1 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .iconBox{
+      width:40px;
+      height:40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: rgba(255,255,255,0.1);
+      border-radius:50%;
+      img{
+        opacity: 0.5;
+      }
+    }
+    .iconBox.active{
+      background-color: rgba(255,255,255,0.3);
+      img{
+        opacity: 1;
+      }
+    }
+  }
+}

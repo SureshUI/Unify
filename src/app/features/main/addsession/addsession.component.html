@@ -329,13 +329,13 @@
       </div>
     </div>
   </div>
-
+  <p style="color: red;" *ngIf="errorMsg">Session not created..please check your inputs..!</p>
   <div class="bottomBtn d-flex">
     <div class="back ">
       <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
     </div>
     <div class="previewBtn ml-auto">
-      <p style="color: red;" *ngIf="errorMsg">Session not created..please check your inputs..!</p>
+      
       <button type="button" (click)="saveSession()">Host!</button>
     </div>
   </div>
