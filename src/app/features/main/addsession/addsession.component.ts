@@ -27,10 +27,13 @@ export class AddsessionComponent implements OnInit {
   toppings = new FormControl();
   pipe = new DatePipe('en-US');
   now = Date.now();
+  public minDate;
+  public errorMsg = false;
   // toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   public currentDate: any;
   constructor(private service: MainService, public router: Router, private datePipe: DatePipe) {
     this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
+    this.minDate = this.currentDate;
   }
 
   ngOnInit() {
@@ -105,7 +108,8 @@ export class AddsessionComponent implements OnInit {
   }
 
   saveSession() {
-
+    var user_id = localStorage.getItem("userId");
+    var participantListIds = [];
     var req = this.sessionModel;
     req["hosted_by"] = this.profileDetails.id;
     req["session_code"] = "";
@@ -119,8 +123,17 @@ export class AddsessionComponent implements OnInit {
 
     req["start_datetime"] = mySimpleFormat;
     req["start_endtime"] = mySimpleFormat;
-    this.service.saveSession(req).subscribe(res => {
-      this.router.navigate(["/main/mysessions"]);
+    var len = this.sessionModel["participants"].length
+    req["participants"][len] = Number(user_id);
+
+    this.service.saveSession(req).subscribe(result => {
+      var res = JSON.parse(result);
+      console.log(res);
+      if (res && res.Resp && res.Resp.status) {
+        this.errorMsg = true;
+      } else {
+        this.router.navigate(["/main/mysessions"]);
+      }
     }, (error) => {
       //Error callback
     });

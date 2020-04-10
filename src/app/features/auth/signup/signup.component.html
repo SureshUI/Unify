@@ -33,7 +33,7 @@
         password and confirmation password do not match.</p>
       <!-- [disabled]="userModel.username&&userModel.email&&userModel.password&&userModel.confirmPassword" -->
       <button class="btnWhite"
-        [disabled]="(!userModel.username&&!userModel.email&&!userModel.password&&!userModel.confirmPassword) ||( userModel.password!=userModel.confirmPassword)"
+        [disabled]="(!userModel.username&&!userModel.email&&!userModel.password&&!userModel.confirmPassword&&!userModel.first_name&&!userModel.last_name) ||( userModel.password!=userModel.confirmPassword)"
         (click)="signIn(userModel)">Submit</button>
       <div class="formFields">
         <span class="rTxt"><a routerLink="/auth/login">Cancel</a></span>

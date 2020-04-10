@@ -1,27 +1,66 @@
+<div class="pageHeader">
+  <h2 class="title">unify</h2>
+
+  <div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle proImg" href="#" role="button" id="dropdownMenuLink"
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <img src="./assets/images/profile.png" alt="profile" />
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" (click)="logout()">Logout</a>
+    </div>
+  </div>
+
+
+</div>
 <div class="homeContainer">
-  <h3>Welcome  Pete! Your next session...</h3>
+  <h3>Welcome Pete! Your next session...</h3>
 
   <div class="sesBox">
     <div class="imgCont">
-      <img src="./assets/images/session.png" alt="img"/>
+      <img src="./assets/images/session.png" alt="img" />
     </div>
     <div class="sesInfo">
       <p>Space time meditation, one of the best out there!</p>
-      <div class="proDet">  
+      <div class="proDet">
         <div class="userPro">
-          <img src="./assets/images/profile2.png" alt="Profile"/>
+          <img src="./assets/images/profile2.png" alt="Profile" />
         </div>
-        <p>Hosted by<br/><span>Mark</span></p>
+        <p>Hosted by<br /><span>Mark</span></p>
       </div>
       <p class="noMargin">3 Feb 2020, 20:00 hrs</p>
       <span>(in 2 days)</span>
 
       <div class="inviLink">
-        <a> 
-          <img src="./assets/images/icons/heart.svg" width="14" alt="Invitation"/>
+        <a>
+          <img src="./assets/images/icons/heart.svg" width="14" alt="Invitation" />
           Accept Invitation
         </a>
       </div>
     </div>
+  </div>
+</div>
+
+<div class="pageFooter">
+  <div class="tabBox">
+    <a class="iconBox active" routerLink="/main/home" routerLinkActive="active">
+      <img src="./assets/images/icons/home.png" alt="home" />
+    </a>
+  </div>
+  <div class="tabBox">
+    <a class="iconBox" routerLink="/main/mysessions" routerLinkActive="active">
+      <img src="./assets/images/icons/headset.png" alt="Session" />
+    </a>
+  </div>
+  <div class="tabBox">
+    <a class="iconBox" routerLink="/main/explore" routerLinkActive="active">
+      <img src="./assets/images/icons/search.png" alt="Explore" />
+    </a>
+  </div>
+  <div class="tabBox">
+    <a class="iconBox">
+      <img src="./assets/images/icons/more.png" alt="More" />
+    </a>
   </div>
 </div>
