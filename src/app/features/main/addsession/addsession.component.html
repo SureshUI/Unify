@@ -1,3 +1,9 @@
+<div class="pageHeader">
+  <h2 class="title">unify</h2>
+  <a class="btn btn-secondary proImg" routerLink="/main/profile">
+    <img src="./assets/images/profile.png" alt="profile" />
+  </a>
+</div>
 <!-- Invite Participant -->
 <div class="inviteParticipants"
   *ngIf="!createSessionFlag&&!datetimeFlag&&!previewPageFlag&&!loadTrackFlag&&participantsLisPageFlag">
@@ -118,7 +124,7 @@
 
   <div class="inputContainer">
     <label>Description <span>(required only for public events)</span></label>
-    <textarea placeholder="Enter the lines about the session" [(ngModel)]="sessionModel.session_desc"></textarea>
+    <textarea placeholder="Enter a few lines about the session" [(ngModel)]="sessionModel.session_desc"></textarea>
   </div>
 
   <div class="inputContainer">

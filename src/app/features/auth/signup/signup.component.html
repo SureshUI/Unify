@@ -20,12 +20,12 @@
         <input type="email" placeholder="Email" [(ngModel)]="userModel.email" />
       </div>
       <div class="formFields">
-        <input type="password" placeholder="Password" [(ngModel)]="userModel.password" />
-        <a class="viewIco"><img src="./assets/images/icons/view.png" height="14" alt="View" /></a>
+        <input [type]="showpwd ? 'text' : 'password'" placeholder="Password" [(ngModel)]="userModel.password" />
+        <a class="viewIco" (click)="showpwd = !showpwd"><img src="./assets/images/icons/view.png" height="14" alt="View" /></a>
       </div>
       <div class="formFields">
-        <input type="password" placeholder="Confirm Password" [(ngModel)]="userModel.confirmPassword" />
-        <a class="viewIco"><img src="./assets/images/icons/view.png" height="14" alt="View" /></a>
+        <input [type]="showconpwd ? 'text' : 'password'" placeholder="Confirm Password" [(ngModel)]="userModel.confirmPassword" />
+        <a class="viewIco" (click)="showconpwd = !showconpwd"><img src="./assets/images/icons/view.png" height="14" alt="View" /></a>
       </div>
       <p style="color: red;" *ngIf="errorMsg">A user with that username already exists.</p>
       <p style="color: red;"

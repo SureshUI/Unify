@@ -11,6 +11,8 @@ export class SignupComponent implements OnInit {
   public errorMsg = false;
   constructor(private service: AuthService, public router: Router) { }
   public userModel = {};
+  public showpwd = false;
+  public showconpwd = false;
   ngOnInit() {
   }
 
