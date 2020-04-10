@@ -475,7 +475,14 @@
 
     <div class="ends d-flex">
       <p>Ends</p>
-      <a class="ml-auto">Tue, Feb 20, 2020</a>
+      <a class="ml-auto">
+        <mat-form-field>
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="enddate">
+          <mat-datepicker-toggle matSuffix [for]="enddate"></mat-datepicker-toggle>
+          <mat-datepicker #enddate></mat-datepicker>
+        </mat-form-field>
+      </a>
     </div>
   </div>
   <div class="grayBtn">

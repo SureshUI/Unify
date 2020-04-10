@@ -419,10 +419,11 @@
   .scheduleTime{
     .timeSelect{
       width:calc(100% - 60px);
-      .calLabel{
+      .calLabel{  
         display: flex;
         label{
           font-size:14px;
+          margin-bottom:0px;
         }
         .lblLeft{position:relative; left:-30px;}
         .lblRight{position:relative; right:-30px;}
@@ -452,7 +453,7 @@
           background-color: #606060;
         }
       }
-      margin:20px auto 20px;
+      margin:3px auto 20px;
       .startAndEndTime{
         display:flex;
         align-items: center;
@@ -468,16 +469,16 @@
         }
       }
     }
-    padding:0px 30px 0px;
+    padding:15px 30px 0px;
     .ends{
-      margin:18px 0px 5px 15px;
+      margin:0px 0px 5px 15px;
       p{ font-size:20px;}
       a{
         font-size:18px;
       }
     }
     .repeats{
-      margin:18px 0px 18px 15px;
+      margin:0px 0px 8px 15px;
       p{ font-size:20px;}
       ul{
         display: flex;
@@ -532,7 +533,7 @@
     font-weight: 600;
   }
   .chooseDate{
-    margin-bottom:35px;
+    margin-bottom:0px;
     text-align:center;
   }
   p{
