@@ -1,0 +1,178 @@
+<div class="pageHeader">
+  <h2 class="title">unify</h2>
+  <a class="btn btn-secondary proImg" routerLink="/main/profile">
+    <img src="./assets/images/profile.png" alt="profile" />
+  </a>
+</div>
+
+
+
+
+<!-- View Session -->
+<div class="viewSessions">
+  <!-- PREVIEW Starts Here -->
+  <div class="inputContainer">
+    <h2>Space time meditation, one of the best out there!</h2>
+  </div>
+
+  <div class="hostDetail">
+    <div class="bannerImg">
+      <div class="imgCont">
+        <img src="./assets/images/session.png" style="opacity: 1; object-fit: cover;" width="40" alt="img" />
+      </div>
+    </div>
+    <div class="details">
+      <div class="prodetails">
+        <div class="proImg">
+          <img src="./assets/images/profile.png" alt="profile" />
+        </div>
+        <div class="proText">
+          <label>Hosted by</label>
+          <p>Mark</p>
+        </div>
+      </div>
+
+
+
+      <div class="trackBox">
+
+        <div class="input">
+          <p>3 Feb 2020, 20:00 hrs<br />(session ended)</p>
+        </div>
+        <div class="more ml-auto">
+          <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
+        </div>
+      </div>
+
+      <div class="trackBox" style="margin-top:0px;">
+
+        <div class="input">
+          <p>Duration : 1 hr</p>
+        </div>
+        <div class="more ">
+          <a><img src="./assets/images/icons/replay.svg" alt="More" /></a>
+          <a><img src="./assets/images/icons/group.svg" alt="More" /></a>
+        </div>
+      </div>
+
+
+      <div class="trackBox noMargin">
+
+        <div class="ratingCont">
+          <ul>
+            <li><a><img src="./assets/images/icons/star.svg" width="18" alt="Star"/></a></li>
+            <li><a><img src="./assets/images/icons/star.svg" width="18" alt="Star"/></a></li>
+            <li><a><img src="./assets/images/icons/star.svg" width="18" alt="Star"/></a></li>
+            <li><a><img src="./assets/images/icons/staroutline.svg" width="18" alt="Star"/></a></li>
+            <li><a><img src="./assets/images/icons/staroutline.svg" width="18" alt="Star"/></a></li>
+          </ul>
+          
+        </div>
+        <div class="more ml-auto">
+          <a class="contract"><img src="./assets/images/icons/contract.svg" width="16" alt="More" /></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="inputContainer">
+    <div class="d-flex">
+      <label>Description </label>
+      <div class="more ml-auto">
+        <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
+      </div>
+    </div>
+    <p>Space time meditation one of the best out there another sentence to add some desctiprion about
+      the event and have some text till the end of this...
+    </p> 
+  </div>
+
+  <div class="inputContainer">
+    <div class="d-flex">
+      <label>Participants </label>
+      <div class="more ml-auto">
+        <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
+      </div>
+    </div>
+
+    <div class="proPicCont">
+      <div class="profImgCont">
+        <img src="./assets/images/proimg1.svg" width="50" alt="Profile" />
+        <p>Anna</p>
+      </div>
+      <div class="profImgCont">
+        <img src="./assets/images/proimg2.svg" width="50" alt="Profile" />
+        <p>Mark</p>
+      </div>
+
+      <div class="profImgCont">
+        <img src="./assets/images/proimg3.svg" width="50" alt="Profile" />
+        <p>John</p>
+      </div>
+      <div class="profImgCont">
+        <img src="./assets/images/proimg4.svg" width="50" alt="Profile" />
+        <p>Peter</p>
+      </div>
+      <div class="profImgCont">
+        <img src="./assets/images/proimg5.svg" width="50" alt="Profile" />
+        <p>Jen</p>
+      </div>
+
+
+    </div>
+  </div>
+  <div class="meditationTrack">
+    <label>Meditation track</label>
+    <div class="trackBox" style="margin-top:10px;">
+      <div class="icon" style="width:70px;padding-right:10px;">
+        <img src="./assets/images/meditation.svg" width="60" alt="cloud" />
+      </div>
+      <div class="input">
+        <!-- <p>Space time & time space.mp3</p> -->
+        <p>{{sessionModel.particpants_suggestion}}</p>
+      </div>
+      <div class="more ml-auto">
+        <a style="position: relative; top:-8px;"><img src="./assets/images/icons/more.svg" alt="More" /></a>
+      </div>
+    </div>
+
+  </div>
+  <div class="comments">
+    <label>Comments</label>
+    <div class="addComment d-flex">
+      <div class="proSec">
+        <div class="userProfile">
+          <img src="./assets/images/profile.png" alt="user" />
+        </div>
+        <p>Peter</p>
+      </div>
+      <div class="inputField" style="padding-left:24px;">
+        <p>Looking forward to it guys!</p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <div class="bottomBtn d-flex" *ngIf="true">
+    <!--Cancel and join Button-->
+    <div class="back ">
+      <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
+    </div>
+    <div class="previewBtn ml-auto">
+      <button type="button" class="btnWhite">Re-schedule</button>
+    </div>
+  </div>
+
+
+
+
+  
+
+</div> <!-- PREVIEW Ends Here -->
+
+
+
+

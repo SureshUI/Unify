@@ -1,0 +1,149 @@
+.mediCont{
+  padding-top:15px;
+  .head{
+    min-height:100px;
+    margin-left:15px;
+    margin-right:15px;
+    background-color:rgba(255,255,255,0.03);
+    display:flex;
+    padding:26px 0px 10px;
+    .hBox{
+      flex:1 1;
+      text-align:center;
+      h3{    
+        font-size: 46px;
+        font-weight: 400;
+        margin-bottom: 4px;
+        border-right:1px solid #FFFFFF;
+        line-height: 20px;
+        &.noBorder{
+          border:none !important;
+        }
+      }
+      p{
+        line-height: 16px;
+        font-size:14px;
+        font-size: 300;
+        margin-top:24px;
+      }
+    }
+  }
+
+  .sessTitle{
+    padding:20px 15px 15px 20px;
+    display:flex;
+    h2{
+      font-size:22px; font-weight: 300;
+      flex:1 1;
+      margin:0px;
+    }
+    .sessFilters{
+     a{font-weight: 300;}
+    }
+  }
+}
+
+.paddLF15{
+  padding:0px 10px;
+}
+
+
+.sesBox{
+  display: flex;
+  padding-left:20px;
+  padding-right:20px;
+  padding-top:12px;
+  padding-bottom:12px;
+  background-color:rgba(0,0,0,0.32) ;
+  margin-bottom:10px;
+  .ratingCont{
+    margin-top:10px;
+    display: flex;
+
+    ul{
+      display:flex;
+      flex:1 1;
+      li{
+        margin-right:3px;
+      }
+    }
+
+    .notes{
+      margin-right:5px;
+    }
+  }
+  .whiteBtn{
+    border:none;
+    background-color: #FFFFFF;
+    height:26px;
+    border-radius:13px;
+    padding:0px 15px;
+    margin-top:5px;
+  }
+  .imgCont{
+    width:130px;
+    height:180px;
+    background-color: rgba(255,255,255,0.3);
+    img{
+      width:130px;
+      height:180px;
+      object-fit: cover;
+    }
+  }
+  .sesInfo{
+    flex:1 1;
+    padding-left:15px;
+    .date{
+      margin-top:8px;
+    }
+    .inviLink{
+      margin-top:6px;
+      font-weight: 300;
+      font-size: 14px;
+      text-align: right;
+      img{
+        position: relative;
+        top:-3px;
+        left:-2px;
+      }
+    }
+    p{
+      font-size:18px;
+      color:#FFFFFF;
+      line-height: 22px;
+      font-weight: 200;
+    }
+    span{
+      font-size:16px;
+      color:#FFFFFF;
+      line-height: 22px;
+      font-weight: 200;
+    }
+    .proDet{
+      display:flex;
+      margin-bottom:0px;
+      .userPro{
+        width:50px;
+        height:50px;
+        border-radius:50%;
+        overflow:hidden;
+        background-color: rgba(255,255,255,0.3);
+        img{
+          width:50px;
+          height:50px;
+          object-fit: cover;
+        }
+      }
+      p{
+        flex:1 1;
+        padding-left:12px;
+        font-size:14px;
+        font-weight: 300;
+        span{
+          font-size:18px;
+          font-weight: 400;
+        }
+      }
+    }
+  }
+}

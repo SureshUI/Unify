@@ -8,6 +8,9 @@ import { AddsessionComponent } from './addsession/addsession.component';
 import { ViewsessionComponent } from './viewsession/viewsession.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EditprofileComponent } from './editprofile/editprofile.component';
+import { SettingsComponent } from './settings/settings.component';
+import { PastmeditationsComponent } from './pastmeditations/pastmeditations.component';
+import { ViewoldsessionComponent } from './viewoldsession/viewoldsession.component';
 
 
 const routes: Routes = [
@@ -38,12 +41,24 @@ const routes: Routes = [
         component: ViewsessionComponent
       },
       {
+        path: 'viewoldsession',
+        component: ViewoldsessionComponent
+      },
+      {
         path: 'explore',
         component: ExploreComponent
       },
       {
         path: 'profile',
         component: ProfileComponent
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent
+      },
+      {
+        path: 'pastmeditations',
+        component: PastmeditationsComponent
       },
       {
         path: 'editprofile',
@@ -58,5 +73,6 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class MainRoutingModule { }
-export const MainRoutingComponents = [MainComponent, HomeComponent, MysessionsComponent, 
-  ExploreComponent, AddsessionComponent, ViewsessionComponent, ProfileComponent, EditprofileComponent];
+export const MainRoutingComponents = [MainComponent, HomeComponent, MysessionsComponent,
+  ExploreComponent, AddsessionComponent, ViewsessionComponent, ProfileComponent,
+  EditprofileComponent, SettingsComponent, PastmeditationsComponent, ViewoldsessionComponent];

@@ -1,0 +1,96 @@
+<div class="pageHeader">
+  <h2 class="title">unify</h2>
+
+  <div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle proImg" href="#" role="button" id="dropdownMenuLink"
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <img src="./assets/images/profile.png" alt="profile" />
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+      <a class="dropdown-item" (click)="logout()">Logout</a>
+    </div>
+  </div>
+
+
+</div>
+
+<div class="settingsContainer">
+  <h6>Settings</h6>
+  <div class="perDetails">
+    <div class="title">
+      <p>Background</p>
+      <a class="edit" >Change</a>
+    </div>
+    <p>Quantum clouds</p>
+    <div>
+      <div class="title alerts">
+        <p>Alerts (before start of session)</p>
+      </div>
+      <div class="checkboxGroup">
+        <label class="checkbox">
+          5 mins
+          <input type="checkbox" name="c1">
+          <span class="checkmark"></span>
+        </label>
+        <label class="checkbox">
+          15 mins
+          <input type="checkbox" name="c2">
+          <span class="checkmark"></span>
+        </label>
+        <label class="checkbox">
+          30 mins
+          <input type="checkbox" name="c3">
+          <span class="checkmark"></span>
+        </label>
+      </div>
+    </div>
+
+    <div>
+      <div class="title alerts">
+        <p>Data usage</p>
+      </div>
+      <div class="d-flex">
+        <label class="checkbox">
+          Wait for Wi-Fi before syncing tracks
+          <input type="checkbox" name="c1">
+          <span class="checkmark"></span>
+        </label>
+        <div class="ml-auto">
+          <a><img alt="More" src="./assets/images/icons/more.svg"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+
+  
+
+
+</div>
+
+
+
+<div class="pageFooter">
+  <div class="tabBox">
+    <a class="iconBox active" routerLink="/main/home" routerLinkActive="active">
+      <img src="./assets/images/icons/home.png" alt="home" />
+    </a>
+  </div>
+  <div class="tabBox">
+    <a class="iconBox" routerLink="/main/mysessions" routerLinkActive="active">
+      <img src="./assets/images/icons/headset.png" alt="Session" />
+    </a>
+  </div>
+  <div class="tabBox">
+    <a class="iconBox" routerLink="/main/explore" routerLinkActive="active">
+      <img src="./assets/images/icons/search.png" alt="Explore" />
+    </a>
+  </div>
+  <div class="tabBox">
+    <a class="iconBox">
+      <img src="./assets/images/icons/more.png" alt="More" />
+    </a>
+  </div>
+</div>

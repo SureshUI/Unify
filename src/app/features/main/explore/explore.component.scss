@@ -1,0 +1,118 @@
+.sessCont{
+  .sessHeader{
+    padding: 16px 20px 6px;
+    h3{ font-size:24px; font-weight: 300; }
+    p{
+      font-size:18px; font-weight: 300;
+    }
+  }
+
+  .createNew{
+    background-color: rgba(0,0,0,0.32);
+    padding:16px 0px 12px;
+    text-align:center;
+    p{
+      font-size:16px; font-weight: 300; margin-bottom:0px;
+    }
+  }
+
+  .sessTitle{
+    padding:0px 20px 15px;
+    display:flex;
+    align-items: center;
+    h2{
+      font-size:18px; font-weight: 300;
+      flex:1 1
+    }
+    input{
+      flex:1 1;
+      height:38px;
+      border:none;
+      padding-left:10px;
+    }
+    .sessFilters{
+     a{font-weight: 300;}
+     padding-left:40px;
+    }
+  }
+
+
+
+  .sesBox{
+    display: flex;
+    padding-left:20px;
+    padding-right:20px;
+    padding-top:12px;
+    padding-bottom:12px;
+    background-color:rgba(0,0,0,0.32) ;
+    margin-bottom:10px;
+    .imgCont{
+      width:130px;
+      height:180px;
+      background-color: rgba(255,255,255,0.3);
+      img{
+        width:130px;
+        height:180px;
+        object-fit: cover;
+      }
+    }
+    .sesInfo{
+      flex:1 1;
+      padding-left:15px;
+      .date{
+        margin-top:8px;
+      }
+      .inviLink{
+        margin-top:6px;
+        font-weight: 300;
+        font-size: 14px;
+        text-align: right;
+        img{
+          position: relative;
+          top:-3px;
+          left:-2px;
+        }
+      }
+      p{
+        font-size:18px;
+        color:#FFFFFF;
+        line-height: 22px;
+        font-weight: 200;
+      }
+      span{
+        font-size:16px;
+        color:#FFFFFF;
+        line-height: 22px;
+        font-weight: 200;
+      }
+      .proDet{
+        display:flex;
+        margin-bottom:0px;
+        .userPro{
+          width:50px;
+          height:50px;
+          border-radius:50%;
+          overflow:hidden;
+          background-color: rgba(255,255,255,0.3);
+          img{
+            width:50px;
+            height:50px;
+            object-fit: cover;
+          }
+        }
+        p{
+          flex:1 1;
+          padding-left:12px;
+          font-size:14px;
+          font-weight: 300;
+          span{
+            font-size:18px;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+  }
+
+
+}
