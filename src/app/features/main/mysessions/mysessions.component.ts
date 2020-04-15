@@ -32,11 +32,17 @@ export class MysessionsComponent implements OnInit {
       for (var i = 0; i < res.response.result.length; i++) {
         // let sessionModel = {};
         let session = res.response.result[i];
-        var start_datetime = moment(this.datePipe.transform(session["start_datetime"], 'yyyy-MM-dd'));
+        var start_endtime = moment(this.datePipe.transform(session["start_endtime"], 'yyyy-MM-dd'));
         var curDate = moment(this.currentDate);
 
-        var days = Math.abs(start_datetime.diff(curDate, 'days'));
+        var days = Math.abs(start_endtime.diff(curDate, 'days'));
         session["days"] = days;
+
+        var start_datetimeDuration = moment(this.datePipe.transform(session["start_datetime"], 'yyyy-MM-dd HH:mm:ss'));
+        var endDateTIme = moment(this.datePipe.transform(session["start_endtime"], 'yyyy-MM-dd HH:mm:ss'));
+        var duration = Math.abs(start_datetimeDuration.diff(endDateTIme, 'hours'));
+        session["between_hours"] = duration;
+
         this.sessionLists.push(session);
 
       }

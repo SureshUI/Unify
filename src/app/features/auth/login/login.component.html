@@ -1,5 +1,6 @@
-<div class="authCont" >  <!-- style="background-image: url('./assets/images/bg1.png');"  -->
-  <div  class="authBgImg"><img src="./assets/images/bg1.png" alt="Background"/></div>
+<div class="authCont">
+  <!-- style="background-image: url('./assets/images/bg1.png');"  -->
+  <div class="authBgImg"><img src="./assets/images/bg1.png" alt="Background" /></div>
   <div class="wrapper">
     <div class="authFormCont">
       <div class="authHead">
@@ -16,7 +17,7 @@
         <span class="rTxt"><a routerLink="/auth/forgotpassword">Forgot password?</a></span>
       </div>
       <p style="color: red;" *ngIf="errorMsg"> Invalid User</p>
-      <button class="btnWhite" [disabled]="!loginModel.username&&!loginModel.password"
+      <button class="btnWhite" [disabled]="!loginModel.username||!loginModel.password"
         (click)="login(loginModel)">Login</button>
 
       <div class="signupBtn">

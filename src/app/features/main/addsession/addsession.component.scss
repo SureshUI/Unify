@@ -533,8 +533,8 @@
     font-weight: 600;
   }
   .chooseDate{
-    margin-bottom:0px;
-    text-align:center;
+    margin-bottom:0px !important;
+    text-align:center !important;
   }
   p{
     text-align:center;
@@ -667,4 +667,9 @@
       }
     }
   }
+
+  .dissablediv{
+    background: #ccc;
+  }
+  
   

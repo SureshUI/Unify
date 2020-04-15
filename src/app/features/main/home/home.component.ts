@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,18 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public router: Router) { }
-
+  constructor(public router: Router, private service: MainService) { }
+  public profileDetails: any;
   ngOnInit() {
+    this.getProfileDetails();
+  }
+  getProfileDetails() {
+    var user_id = localStorage.getItem("userId");
+    this.service.getProfileDetails(user_id).subscribe(res => {
+      this.profileDetails = res;
+    }, (error) => {
+      //Error callback
+    });
   }
   logout() {
     localStorage.clear();

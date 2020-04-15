@@ -1,4 +1,3 @@
-
 <!-- View Session -->
 <div class="viewSessions">
   <!-- PREVIEW Starts Here -->
@@ -145,7 +144,7 @@
         <input type="text" placeholder="Add Comment" />
       </div>
       <div class="d-flex align-items-center justift-content-center" style="padding-left:10px;">
-        <a><img src="./assets/images/icons/send.svg" width="30" alt="send"/></a>
+        <a><img src="./assets/images/icons/send.svg" width="30" alt="send" /></a>
       </div>
     </div>
   </div>
@@ -153,70 +152,74 @@
 
 
   <!-- Med Track -->
-<div class="medTrack">
-<div class="partText">
-  <div class="trackName">
-   <h6>This track is from our unify CLOUD!</h6>
+  <div class="medTrack">
+    <div class="partText">
+      <div class="trackName">
+        <h6>This track is from our unify CLOUD!</h6>
+      </div>
+      <p>Fantastic news, your host has selected a track from our cloud!</p>
+      <p>We will sync the track to your app so that you can meditate even in flight mode.</p>
+      <p>Please note the following symbols next to the track name.</p>
+
+      <div class="notes">
+        <div class="iconsCont">
+          <a><img src="./assets/images/cloudcheck.png" width="40" height="40" alt="Cloud Success" /></a>
+        </div>
+        <div class="notesText">
+          <p>This symbol means the track has been successfully synced to the app and you are all set.</p>
+        </div>
+      </div>
+
+      <div class="notes">
+        <div class="iconsCont">
+          <a><img src="./assets/images/clouddanger.png" width="40" height="40" alt="Cloud Success" /></a>
+        </div>
+        <div class="notesText">
+          <p>This symbol means the track has NOT been synced. Check your internet connection and make sure that you have
+            un-checked the 'Wait for Wi-Fi before syncing tracks' option in Settings.</p>
+        </div>
+      </div>
+
+    </div>
+    <div class="grayBtn">
+      <button type="button">Done</button>
+    </div>
   </div>
-  <p>Fantastic news, your host has selected a track from our cloud!</p>
-  <p>We will sync the track to your app so that you can meditate even in flight mode.</p>
-  <p>Please note the following  symbols next to the track name.</p>
-
-  <div class="notes">
-    <div class="iconsCont">
-      <a><img src="./assets/images/cloudcheck.png" width="40" height="40" alt="Cloud Success"/></a>
-    </div>
-    <div class="notesText">
-      <p>This symbol means the track has been successfully synced to the app and you are all set.</p>
-    </div>
-  </div>
-
-  <div class="notes">
-    <div class="iconsCont">
-      <a><img src="./assets/images/clouddanger.png"  width="40" height="40" alt="Cloud Success"/></a>
-    </div>
-    <div class="notesText">
-      <p>This symbol means the track has NOT been synced. Check your internet connection and make sure that you have un-checked the 'Wait for Wi-Fi before syncing tracks' option in Settings.</p>
-    </div>
-  </div>
-
-</div>
-<div class="grayBtn">
-  <button type="button" >Done</button>
-</div>
-</div>
 
 
-  <div class="bottomBtn d-flex" *ngIf="false">  <!--Decline and Accept Button-->
+  <div class="bottomBtn d-flex" *ngIf="false">
+    <!--Decline and Accept Button-->
     <div class="back ">
       <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
     </div>
     <div class="previewBtn ml-auto">
       <button type="button" class="btnRed">Decline</button>
-    
+
       <button type="button" class="btnGreen">Accept</button>
     </div>
   </div>
 
 
-  <div class="bottomBtn d-flex" *ngIf="false">  <!--Declined and Re-join Button-->
+  <div class="bottomBtn d-flex" *ngIf="true">
+    <!--Declined and Re-join Button-->
     <div class="back ">
       <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
     </div>
     <div class="previewBtn ml-auto">
       <button type="button" class="btnTransp">You've declined</button>
-    
+
       <button type="button" class="btnGreen">Re-join</button>
     </div>
   </div>
 
-  <div class="bottomBtn d-flex" *ngIf="true">  <!--Cancel and join Button-->
+  <div class="bottomBtn d-flex" *ngIf="false">
+    <!--Cancel and join Button-->
     <div class="back ">
       <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
     </div>
     <div class="previewBtn ml-auto">
       <button type="button" class="btnWhite">Cancel</button>
-    
+
       <!-- <button type="button" class="btnWhite textWhite">Join!</button> -->
       <button type="button" class="btnGreen">Join!</button>
       <!-- <button type="button" class="btnTransp">Joined</button> -->
@@ -243,11 +246,11 @@
     <p>The suggested track is 'Time Space & Space Time'. </p>
     <div class="loadTrack">
       <div class="headphone">
-        <a><img src="./assets/images/icons/headset.png" width="30" alt="Headphone"/></a>
+        <a><img src="./assets/images/icons/headset.png" width="30" alt="Headphone" /></a>
       </div>
       <div class="ltDevice">
-        <img src="./assets/images/icons/phone.svg" width="25" alt="Phone"/>
-        Load track from<br/>your device
+        <img src="./assets/images/icons/phone.svg" width="25" alt="Phone" />
+        Load track from<br />your device
       </div>
     </div>
     <p>Note: Only you will listen to this track and it will NOT be shared with anyone else in the session.</p>
@@ -263,12 +266,13 @@
     <p>Duration: 1 hour</p>
     <p>Repeat: none</p>
     <div class="schBox">
-      <div class="schIco"><img src="./assets/images/icons/replay.svg" width="60" alt="Icon"/></div>
-      <p>If you see this symbol, it means that auto-play is enabled. The event will automatically start exactly at the time shown. </p>
+      <div class="schIco"><img src="./assets/images/icons/replay.svg" width="60" alt="Icon" /></div>
+      <p>If you see this symbol, it means that auto-play is enabled. The event will automatically start exactly at the
+        time shown. </p>
     </div>
 
     <div class="schBox">
-      <div class="schIco"><img src="./assets/images/icons/replay.svg" width="60" alt="Icon"/></div>
+      <div class="schIco"><img src="./assets/images/icons/replay.svg" width="60" alt="Icon" /></div>
       <p>If you see this symbol, it means the event is 'public'. Anyone can find the event and join. </p>
     </div>
     <a>Close</a>
@@ -279,32 +283,32 @@
     <input type="text" placeholder="https://url.com/event12345/" />
     <div class="shareIconCont">
       <div class="socIcons">
-        <img src="./assets/images/icons/copy.svg" width="30" alt="Copy"/>
+        <img src="./assets/images/icons/copy.svg" width="30" alt="Copy" />
         <p>Copy URL</p>
       </div>
 
       <div class="socIcons">
-        <img src="./assets/images/icons/whatsapp.svg" width="30" alt="Copy"/>
+        <img src="./assets/images/icons/whatsapp.svg" width="30" alt="Copy" />
         <p>WhatsApp</p>
       </div>
 
       <div class="socIcons">
-        <img src="./assets/images/icons/gmail.svg" width="30" alt="Copy"/>
+        <img src="./assets/images/icons/gmail.svg" width="30" alt="Copy" />
         <p>Mail</p>
       </div>
 
       <div class="socIcons">
-        <img src="./assets/images/icons/facebook.svg" width="30" alt="Copy"/>
+        <img src="./assets/images/icons/facebook.svg" width="30" alt="Copy" />
         <p>Facebook</p>
       </div>
 
       <div class="socIcons">
-        <img src="./assets/images/icons/twitter.svg" width="30" alt="Copy"/>
+        <img src="./assets/images/icons/twitter.svg" width="30" alt="Copy" />
         <p>Twitter</p>
       </div>
 
       <div class="socIcons">
-        <img src="./assets/images/icons/outlook.svg" width="30" alt="Copy"/>
+        <img src="./assets/images/icons/outlook.svg" width="30" alt="Copy" />
         <p>Outlook</p>
       </div>
 
@@ -313,4 +317,3 @@
   </div>
 
 </div> <!-- PREVIEW Ends Here -->
-

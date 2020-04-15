@@ -1,7 +1,7 @@
 <div class="pageHeader">
   <h2 class="title">unify</h2>
   <a class="btn btn-secondary proImg" routerLink="/main/profile">
-    <img src="./assets/images/profile.png" alt="profile" />
+    <img src="./assets/images/avatar.jpg" alt="profile" />
   </a>
 </div>
 <!-- Invite Participant -->
@@ -13,14 +13,15 @@
       <mat-form-field>
         <mat-label>Enter name of the participants</mat-label>
         <mat-select [formControl]="toppings" multiple [(ngModel)]="sessionModel.participants">
-          <!-- <mat-select-trigger>
-            {{toppings.value ? toppings.value[0] : ''}}
-            <span *ngIf="toppings.value?.length > 1" class="example-additional-selection">
-              (+{{toppings.value.length - 1}} {{toppings.value?.length === 2 ? 'other' : 'others'}})
-            </span>
-          </mat-select-trigger> -->
-          <mat-option *ngFor="let participant of participantList" [value]="participant.id">{{participant.first_name}}
-          </mat-option>
+          <!--           
+          <mat-option *ngFor="let participant of participantList" 
+            [value]="participant.id">{{participant.first_name}}
+          </mat-option> -->
+
+          <ng-container *ngFor="let participant of participantList">
+            <mat-option *ngIf="participant.id!=user_id" [value]="participant">{{participant.first_name}}
+            </mat-option>
+          </ng-container>
         </mat-select>
       </mat-form-field>
     </div>
@@ -71,7 +72,7 @@
     <div class="details">
       <div class="prodetails">
         <div class="proImg">
-          <img src="./assets/images/profile.png" alt="profile" />
+          <img src="./assets/images/avatar.jpg" alt="profile" />
         </div>
         <div class="proText">
           <label>Hosted by</label>
@@ -175,7 +176,9 @@
       <img src="./assets/images/icons/back.svg" routerLink="/main/mysessions" width="18" alt="back" />
     </div>
     <div class="previewBtn ml-auto">
-      <button type="button" (click)="getPreviewPage()">Preview</button>
+      <button type="button"
+        [disabled]="!sessionModel.session_name||!sessionModel.session_desc||!sessionModel.particpants_suggestion||!sessionModel.start_datetime||!sessionModel.start_endtime"
+        (click)="getPreviewPage()">Preview</button>
     </div>
   </div>
 </div> <!--  Add session Ends  -->
@@ -190,11 +193,11 @@
   </div>
 
   <div class="hostDetail">
+    <!-- <div class="bannerImg"> -->
     <div class="bannerImg">
-      <div class="imgCont">
-        <img src="./assets/images/session.png" style="opacity: 1; object-fit: cover;" width="40" alt="img" />
-      </div>
+      <img src="./assets/images/icons/image.svg" style="opacity: 1; object-fit: cover;" width="40" alt="img" />
     </div>
+    <!-- </div> -->
     <div class="details">
       <div class="prodetails">
         <div class="proImg">
@@ -211,7 +214,8 @@
       <div class="trackBox">
 
         <div class="input">
-          <p>{{sessionModel.start_datetime| date: 'dd/MM/yyyy'}}<br />(in {{sessionModel.days}} days)</p>
+          <p>{{sessionModel.start_datetime| date: 'dd/MM/yyyy'}}<br />(in {{sessionModel.days}} days),
+            {{sessionModel.between_hours}} hrs</p>
         </div>
         <div class="more ml-auto">
           <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
@@ -264,11 +268,11 @@
     </div>
 
     <div class="proPicCont">
-      <div class="profImgCont">
-        <img src="./assets/images/proimg1.svg" width="50" alt="Profile" />
-        <p>Anna</p>
+      <div class="profImgCont" *ngFor="let temp of sessionModel.participants">
+        <img src="./assets/images/avatar.jpg" width="50" alt="Profile" />
+        <p>{{temp.first_name}}</p>
       </div>
-      <div class="profImgCont">
+      <!-- <div class="profImgCont">
         <img src="./assets/images/proimg2.svg" width="50" alt="Profile" />
         <p>Mark</p>
       </div>
@@ -284,7 +288,7 @@
       <div class="profImgCont">
         <img src="./assets/images/proimg5.svg" width="50" alt="Profile" />
         <p>Jen</p>
-      </div>
+      </div> -->
 
 
     </div>
@@ -335,7 +339,7 @@
       <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
     </div>
     <div class="previewBtn ml-auto">
-      
+
       <button type="button" (click)="saveSession()">Host!</button>
     </div>
   </div>
@@ -350,21 +354,42 @@
   <!-- Calender Starts -->
   <div class="scheduleTime">
     <h5>Select schedule</h5>
-    <p class="chooseDate">
+    <!-- <p class="chooseDate">
+
       <mat-form-field>
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker" [min]="minDate" [(ngModel)]="sessionModel.start_datetime">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
-    </p>
+      <mat-form-field>
+        <input matInput type="datetime-local" [min]="minDate" [(ngModel)]="sessionModel.start_datetime">
+      </mat-form-field>
+    </p> -->
+    <div class="ends d-flex">
+      <p>Start</p>
+      <a class="ml-auto">
+        <mat-form-field>
+          <input matInput type="datetime-local" [min]="minDate" [(ngModel)]="sessionModel.start_datetime">
+        </mat-form-field>
+      </a>
+    </div>
 
+    <div class="ends d-flex">
+      <p>Ends</p>
+      <a class="ml-auto">
 
+        <mat-form-field>
+          <input matInput type="datetime-local" [min]="minDate" [(ngModel)]="sessionModel.start_endtime">
+        </mat-form-field>
+      </a>
+    </div>
     <div class="timeSelect">
       <div class="startAndEndTime">
-        <a class="timeL">05:00 AM</a>
+        <a class="timeL">{{sessionModel.start_datetime| date:'shortTime':'undefined':'en-US'}}</a>
         <div class="clock"><span><img src="./assets/images/icons/clock.svg" width="20" alt="Clock" /></span></div>
-        <a class="timeR">06:00 AM</a>
+        <a class="timeR">{{sessionModel.start_endtime| date:'shortTime':'undefined':'en-US'}}</a>
       </div>
 
       <div class="line">
@@ -384,34 +409,37 @@
       <span class="checkmark"></span>
     </label>
     <label class="checkbox">Repeat
-      <input type="checkbox" checked="checked">
+      <input type="checkbox">
       <span class="checkmark"></span>
     </label>
+    <div style="position:relative; opacity:0.3;">
+      <div
+        style="position:absolute; width:100%; height:100%; bottom:0px; left:0px; z-index:100; background-color: transparent;">
+      </div>
+      <div class="selectDate d-flex">
+        <div class="col">
+          <label class="checkbox">Daily
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="col">
+          <label class="checkbox">Weekly
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="col">
+          <label class="checkbox">Custom
+            <input type="checkbox" checked="checked">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+      </div>
 
-    <div class="selectDate d-flex">
-      <div class="col">
-        <label class="checkbox">Daily
-          <input type="checkbox" checked="checked">
-          <span class="checkmark"></span>
-        </label>
-      </div>
-      <div class="col">
-        <label class="checkbox">Weekly
-          <input type="checkbox" checked="checked">
-          <span class="checkmark"></span>
-        </label>
-      </div>
-      <div class="col">
-        <label class="checkbox">Custom
-          <input type="checkbox" checked="checked">
-          <span class="checkmark"></span>
-        </label>
-      </div>
-    </div>
-
-    <div class="repeats d-flex align-items-center">
-      <p>Repeats</p>
-      <!-- <ul class="ml-auto">
+      <div class="repeats d-flex align-items-center">
+        <p>Repeats</p>
+        <!-- <ul class="ml-auto">
         <li><a class="active">S</a></li>
         <li><a>M</a></li>
         <li><a>T</a></li>
@@ -420,72 +448,73 @@
         <li><a>F</a></li>
         <li><a>S</a></li>
       </ul> -->
-      <ul class="ml-auto">
-        <li>
-          <label class="checkbox">
-            <span class="letter">S</span>
-            <input type="checkbox" checked="checked">
-            <span class="checkmark"></span>
-          </label>
-        </li>
-        <li>
-          <label class="checkbox">
-            <span class="letter">M</span>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </li>
-        <li>
-          <label class="checkbox">
-            <span class="letter">T</span>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </li>
-        <li>
-          <label class="checkbox">
-            <span class="letter">W</span>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </li>
-        <li>
-          <label class="checkbox">
-            <span class="letter">T</span>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </li>
-        <li>
-          <label class="checkbox">
-            <span class="letter">F</span>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </li>
-        <li>
-          <label class="checkbox">
-            <span class="letter">S</span>
-            <input type="checkbox">
-            <span class="checkmark"></span>
-          </label>
-        </li>
-      </ul>
+        <ul class="ml-auto">
+          <li>
+            <label class="checkbox">
+              <span class="letter">S</span>
+              <input type="checkbox" checked="checked">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li>
+            <label class="checkbox">
+              <span class="letter">M</span>
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li>
+            <label class="checkbox">
+              <span class="letter">T</span>
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li>
+            <label class="checkbox">
+              <span class="letter">W</span>
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li>
+            <label class="checkbox">
+              <span class="letter">T</span>
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li>
+            <label class="checkbox">
+              <span class="letter">F</span>
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+          <li>
+            <label class="checkbox">
+              <span class="letter">S</span>
+              <input type="checkbox">
+              <span class="checkmark"></span>
+            </label>
+          </li>
+        </ul>
+      </div>
     </div>
 
-    <div class="ends d-flex">
+
+    <!-- <div class="ends d-flex">
       <p>Ends</p>
       <a class="ml-auto">
+
         <mat-form-field>
-          <mat-label>Choose a date</mat-label>
-          <input matInput [matDatepicker]="enddate">
-          <mat-datepicker-toggle matSuffix [for]="enddate"></mat-datepicker-toggle>
-          <mat-datepicker #enddate></mat-datepicker>
+          <input matInput type="datetime-local" [min]="minDate" [(ngModel)]="sessionModel.start_endtime">
         </mat-form-field>
       </a>
-    </div>
+    </div> -->
   </div>
+  <span style="color: red;" *ngIf="errorMsgforDate"> You start date should not be greater than end date..!</span>
   <div class="grayBtn">
-    <button type="button" (click)="closeCalender()">Done</button>
+    <button type="button" (click)="validateDates()">Done</button>
   </div>
 </div> <!-- Calender Ends -->

@@ -21,11 +21,14 @@
       </div>
       <div class="formFields">
         <input [type]="showpwd ? 'text' : 'password'" placeholder="Password" [(ngModel)]="userModel.password" />
-        <a class="viewIco" (click)="showpwd = !showpwd"><img src="./assets/images/icons/view.png" height="14" alt="View" /></a>
+        <a class="viewIco" (click)="showpwd = !showpwd"><img src="./assets/images/icons/view.png" height="14"
+            alt="View" /></a>
       </div>
       <div class="formFields">
-        <input [type]="showconpwd ? 'text' : 'password'" placeholder="Confirm Password" [(ngModel)]="userModel.confirmPassword" />
-        <a class="viewIco" (click)="showconpwd = !showconpwd"><img src="./assets/images/icons/view.png" height="14" alt="View" /></a>
+        <input [type]="showconpwd ? 'text' : 'password'" placeholder="Confirm Password"
+          [(ngModel)]="userModel.confirmPassword" />
+        <a class="viewIco" (click)="showconpwd = !showconpwd"><img src="./assets/images/icons/view.png" height="14"
+            alt="View" /></a>
       </div>
       <p style="color: red;" *ngIf="errorMsg">A user with that username already exists.</p>
       <p style="color: red;"
@@ -33,7 +36,7 @@
         password and confirmation password do not match.</p>
       <!-- [disabled]="userModel.username&&userModel.email&&userModel.password&&userModel.confirmPassword" -->
       <button class="btnWhite"
-        [disabled]="(!userModel.username&&!userModel.email&&!userModel.password&&!userModel.confirmPassword&&!userModel.first_name&&!userModel.last_name) ||( userModel.password!=userModel.confirmPassword)"
+        [disabled]="(!userModel.username||!userModel.email||!userModel.password||!userModel.confirmPassword||!userModel.first_name||!userModel.last_name) ||( userModel.password!=userModel.confirmPassword)"
         (click)="signIn(userModel)">Submit</button>
       <div class="formFields">
         <span class="rTxt"><a routerLink="/auth/login">Cancel</a></span>

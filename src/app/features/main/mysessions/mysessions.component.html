@@ -17,7 +17,7 @@
 <div class="pageHeader">
   <h2 class="title">unify</h2>
   <a class="btn btn-secondary proImg" routerLink="/main/profile">
-    <img src="./assets/images/profile.png" alt="profile" />
+    <img src="./assets/images/avatar.jpg" alt="profile" />
   </a>
 </div>
 
@@ -40,19 +40,19 @@
 
   <div *ngFor="let session of sessionLists">
     <div class="sesBox">
-      <div class="imgCont">
-        <img src="./assets/images/session.png" alt="img" />
+      <div class="bannerImg">
+        <img src="./assets/images/icons/image.svg" alt="img" />
       </div>
       <div class="sesInfo">
         <p>{{session.session_desc}}</p>
         <div class="proDet">
           <div class="userPro">
-            <img src="./assets/images/profile2.png" alt="Profile" />
+            <img src="./assets/images/avatar.jpg" alt="Profile" />
           </div>
           <p>Hosted by<br /><span>{{session.hosted_name}}</span></p>
         </div>
         <p class="noMargin">{{session.start_datetime | date: 'dd/MM/yyyy'}}</p>
-        <span>(in {{session.days}} days)</span>
+        <span>(in {{session.days}} days),{{session.between_hours}} hrs</span>
 
         <div class="inviLink">
           <a>

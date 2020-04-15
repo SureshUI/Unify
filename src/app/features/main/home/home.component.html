@@ -1,31 +1,21 @@
 <div class="pageHeader">
   <h2 class="title">unify</h2>
-
-  <div class="dropdown show">
-    <a class="btn btn-secondary dropdown-toggle proImg" href="#" role="button" id="dropdownMenuLink"
-      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      <img src="./assets/images/profile.png" alt="profile" />
-    </a>
-
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-      <a class="dropdown-item" (click)="logout()">Logout</a>
-    </div>
-  </div>
-
-
+  <a class="btn btn-secondary proImg" routerLink="/main/profile">
+    <img src="./assets/images/avatar.jpg" alt="profile" />
+  </a>
 </div>
 <div class="homeContainer">
-  <h3>Welcome Pete! Your next session...</h3>
+  <h3>Welcome {{profileDetails?profileDetails.first_name:'NA'}}! Your next session...</h3>
 
   <div class="sesBox">
-    <div class="imgCont">
-      <img src="./assets/images/session.png" alt="img" />
+    <div class="bannerImg">
+      <img src="./assets/images/icons/image.svg" alt="img" />
     </div>
     <div class="sesInfo">
       <p>Space time meditation, one of the best out there!</p>
       <div class="proDet">
         <div class="userPro">
-          <img src="./assets/images/profile2.png" alt="Profile" />
+          <img src="./assets/images/avatar.jpg" alt="Profile" />
         </div>
         <p>Hosted by<br /><span>Mark</span></p>
       </div>

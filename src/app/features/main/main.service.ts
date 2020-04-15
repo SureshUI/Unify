@@ -49,4 +49,22 @@ export class MainService {
     );
   }
 
+  public getProfileData(userId): Observable<any> {
+    return this.http.get(this.apiURL + '/userprofile/' + userId, this.httpOptions).pipe(
+      map((response) => {
+        return response;
+      })
+    )
+  }
+
+  public updateProfile(profile_id, data): Observable<any> {
+    return this.http
+      .put(this.apiURL + "/userprofile/update/" + profile_id, data, this.httpOptions)
+      .pipe(
+        map(res => {
+          return JSON.stringify(res);
+        })
+      )
+  }
+
 }

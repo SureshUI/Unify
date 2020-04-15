@@ -19,6 +19,7 @@ export class LoginComponent implements OnInit {
     this.service.login(model).subscribe(result => {
       let res = JSON.parse(result);
       if (res.user_id) {
+        localStorage.clear();
         localStorage.setItem("token", res.access);
         localStorage.setItem("userId", res.user_id);
         this.router.navigate(["/main/home"]);

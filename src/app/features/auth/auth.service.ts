@@ -38,6 +38,16 @@ export class AuthService {
         })
       );
   }
+  public signInUser(data): Observable<any> {
+    return this.http
+      .post(this.apiURL + "/userprofile/signup", data, this.httpOptions)
+      .pipe(
+        map(res => {
+          return JSON.stringify(res);
+        })
+      );
+  }
+
   public signIn(data): Observable<any> {
     return this.http
       .post(this.apiURL + "/user/create", data, this.httpOptions)

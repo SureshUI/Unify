@@ -31,12 +31,16 @@ export class AddsessionComponent implements OnInit {
   public errorMsg = false;
   // toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   public currentDate: any;
+  public user_id;
+  public errorMsgforDate = false;
   constructor(private service: MainService, public router: Router, private datePipe: DatePipe) {
     this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.minDate = this.currentDate;
   }
 
   ngOnInit() {
+    var id = localStorage.getItem("userId");
+    this.user_id = Number(id);
     this.getProfileDetails();
 
     this.createSessionFlag = true;
@@ -56,12 +60,17 @@ export class AddsessionComponent implements OnInit {
     this.datetimeFlag = false;
     this.loadTrackFlag = false;
     this.participantsLisPageFlag = false;
-    // console.log("sessionModel", this.sessionModel);
-    var start_datetime = moment(this.datePipe.transform(this.sessionModel["start_datetime"], 'yyyy-MM-dd'));
+    console.log("sessionModel", this.sessionModel);
+    var start_endtime = moment(this.datePipe.transform(this.sessionModel["start_endtime"], 'yyyy-MM-dd'));
     var curDate = moment(this.currentDate);
 
-    var days = Math.abs(start_datetime.diff(curDate, 'days'));
+    var days = Math.abs(start_endtime.diff(curDate, 'days'));
     this.sessionModel["days"] = days;
+
+    var start_datetimeDuration = moment(this.datePipe.transform(this.sessionModel["start_datetime"], 'yyyy-MM-dd HH:mm:ss'));
+    var endDateTIme = moment(this.datePipe.transform(this.sessionModel["start_endtime"], 'yyyy-MM-dd HH:mm:ss'));
+    var duration = Math.abs(start_datetimeDuration.diff(endDateTIme, 'hours'));
+    this.sessionModel["between_hours"] = duration;
 
   }
 
@@ -113,17 +122,23 @@ export class AddsessionComponent implements OnInit {
     var req = this.sessionModel;
     req["hosted_by"] = this.profileDetails.id;
     req["session_code"] = "";
-    req["start_endtime"] = "";
+    // req["start_endtime"] = "";
     req["session_logo_url"] = "";
     req["file_url"] = "";
     req["Is_let_participants_file"] = false;
     req["Is_public"] = this.sessionModel["Is_public"] ? true : false;
     req["Is_autostart"] = this.sessionModel["Is_autostart"] ? true : false;
-    let mySimpleFormat = this.pipe.transform(req["start_datetime"], 'yyyy-MM-dd HH:mm:ss');
+    let start_datetime = this.pipe.transform(req["start_datetime"], 'yyyy-MM-dd HH:mm:ss');
+    let start_endtime = this.pipe.transform(req["start_endtime"], 'yyyy-MM-dd HH:mm:ss');
+    req["start_datetime"] = start_datetime;
+    req["start_endtime"] = start_endtime;
 
-    req["start_datetime"] = mySimpleFormat;
-    req["start_endtime"] = mySimpleFormat;
-    var len = this.sessionModel["participants"].length
+    for (var i = 0; i < this.sessionModel["participants"].length; i++) {
+
+      participantListIds.push(this.sessionModel["participants"][i].id);
+    }
+    req["participants"] = participantListIds;
+    var len = participantListIds.length
     req["participants"][len] = Number(user_id);
 
     this.service.saveSession(req).subscribe(result => {
@@ -137,6 +152,18 @@ export class AddsessionComponent implements OnInit {
     }, (error) => {
       //Error callback
     });
+  }
+
+  validateDates() {
+
+    var start_datetimeDuration = moment(this.datePipe.transform(this.sessionModel["start_datetime"], 'yyyy-MM-dd HH:mm:ss'));
+    var endDateTIme = moment(this.datePipe.transform(this.sessionModel["start_endtime"], 'yyyy-MM-dd HH:mm:ss'));
+    if (start_datetimeDuration > endDateTIme) {
+      this.errorMsgforDate = true;
+    } else {
+      this.closeCalender();
+    }
+
   }
 
 }
