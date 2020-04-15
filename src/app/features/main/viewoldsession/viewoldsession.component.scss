@@ -283,7 +283,7 @@
   .calcelPopup{
     height:auto;
     min-height:100px;
-    bottom:80px;
+    bottom:4px;
     position: fixed;
     background-color: #dcdcdc;
     width:calc(100% - 80px);
@@ -292,6 +292,7 @@
     padding:30px;
     color:#000000;
     text-align:center;
+    z-index:9;
     h6{
       font-size:18px;
     }
