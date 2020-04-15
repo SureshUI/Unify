@@ -13,10 +13,7 @@
       <mat-form-field>
         <mat-label>Enter name of the participants</mat-label>
         <mat-select [formControl]="toppings" multiple [(ngModel)]="sessionModel.participants">
-          <!--           
-          <mat-option *ngFor="let participant of participantList" 
-            [value]="participant.id">{{participant.first_name}}
-          </mat-option> -->
+      
 
           <ng-container *ngFor="let participant of participantList">
             <mat-option *ngIf="participant.id!=user_id" [value]="participant">{{participant.first_name}}
