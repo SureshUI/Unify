@@ -1,24 +1,30 @@
+<div class="pageHeader">
+  <h2 class="title">unify</h2>
+  <a class="btn btn-secondary proImg" routerLink="/main/profile">
+    <img src="./assets/images/avatar.jpg" alt="profile" />
+  </a>
+</div>
 <!-- View Session -->
 <div class="viewSessions">
   <!-- PREVIEW Starts Here -->
   <div class="inputContainer">
-    <h2>Space time meditation, one of the best out there!</h2>
+    <h2>{{session_details.session_desc}}</h2>
   </div>
 
   <div class="hostDetail">
     <div class="bannerImg">
-      <div class="imgCont">
-        <img src="./assets/images/session.png" style="opacity: 1; object-fit: cover;" width="40" alt="img" />
-      </div>
+      <!-- <div class="imgCont"> -->
+      <img src="./assets/images/icons/image.svg" style="opacity: 1; object-fit: cover;" width="40" alt="img" />
+      <!-- </div> -->
     </div>
     <div class="details">
       <div class="prodetails">
         <div class="proImg">
-          <img src="./assets/images/profile.png" alt="profile" />
+          <img src="./assets/images/avatar.jpg" alt="profile" />
         </div>
         <div class="proText">
           <label>Hosted by</label>
-          <p>{{profileDetails?profileDetails.first_name:'NA'}}</p>
+          <p>{{session_details?session_details.hosted_name:'NA'}}</p>
         </div>
       </div>
 
@@ -27,7 +33,8 @@
       <div class="trackBox">
 
         <div class="input">
-          <p>{{sessionModel.start_datetime| date: 'dd/MM/yyyy'}}<br />(in 2 days)</p>
+          <p>{{session_details.start_datetime| date: 'dd/MM/yyyy'}}<br />(in {{session_details.days}}
+            days), {{session_details.between_hours}} hrs</p>
         </div>
         <div class="more ml-auto">
           <a><img src="./assets/images/icons/more.svg" alt="More" /></a>
@@ -68,7 +75,7 @@
     <!-- <p>Space time meditation one of the best out there another sentence to add some desctiprion about
       the event and have some text till the end of this...
     </p> -->
-    <p>{{sessionModel.session_desc}}</p>
+    <p>{{session_details.session_desc}}</p>
   </div>
 
   <div class="inputContainer">
@@ -80,11 +87,11 @@
     </div>
 
     <div class="proPicCont">
-      <div class="profImgCont">
-        <img src="./assets/images/proimg1.svg" width="50" alt="Profile" />
-        <p>Anna</p>
+      <div class="profImgCont" *ngFor="let part of participants">
+        <img src="./assets/images/avatar.jpg" width="50" alt="Profile" />
+        <p>{{part.username}}</p>
       </div>
-      <div class="profImgCont">
+      <!-- <div class="profImgCont">
         <img src="./assets/images/proimg2.svg" width="50" alt="Profile" />
         <p>Mark</p>
       </div>
@@ -100,7 +107,7 @@
       <div class="profImgCont">
         <img src="./assets/images/proimg5.svg" width="50" alt="Profile" />
         <p>Jen</p>
-      </div>
+      </div> -->
 
 
     </div>
@@ -113,7 +120,7 @@
       </div>
       <div class="input">
         <!-- <p>Space time & time space.mp3</p> -->
-        <p>{{sessionModel.particpants_suggestion}}</p>
+        <p>{{session_details.particpants_suggestion}}</p>
       </div>
       <div class="more ml-auto">
         <a style="position: relative; top:-8px;"><img src="./assets/images/icons/more.svg" alt="More" /></a>
@@ -152,7 +159,7 @@
 
 
   <!-- Med Track -->
-  <div class="medTrack">
+  <div class="medTrack" *ngIf="false">
     <div class="partText">
       <div class="trackName">
         <h6>This track is from our unify CLOUD!</h6>
@@ -187,10 +194,10 @@
   </div>
 
 
-  <div class="bottomBtn d-flex" *ngIf="false">
+  <div class="bottomBtn d-flex" *ngIf="session_details.status=='INITIAL'">
     <!--Decline and Accept Button-->
     <div class="back ">
-      <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
+      <img src="./assets/images/icons/back.svg" (click)="back()" width="18" alt="back" />
     </div>
     <div class="previewBtn ml-auto">
       <button type="button" class="btnRed">Decline</button>
@@ -200,10 +207,10 @@
   </div>
 
 
-  <div class="bottomBtn d-flex" *ngIf="true">
+  <div class="bottomBtn d-flex" *ngIf="false">
     <!--Declined and Re-join Button-->
     <div class="back ">
-      <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
+      <img src="./assets/images/icons/back.svg" (click)="back()" width="18" alt="back" />
     </div>
     <div class="previewBtn ml-auto">
       <button type="button" class="btnTransp">You've declined</button>
@@ -215,7 +222,7 @@
   <div class="bottomBtn d-flex" *ngIf="false">
     <!--Cancel and join Button-->
     <div class="back ">
-      <img src="./assets/images/icons/back.svg" (click)="closeCalender()" width="18" alt="back" />
+      <img src="./assets/images/icons/back.svg" (click)="back()" width="18" alt="back" />
     </div>
     <div class="previewBtn ml-auto">
       <button type="button" class="btnWhite">Cancel</button>

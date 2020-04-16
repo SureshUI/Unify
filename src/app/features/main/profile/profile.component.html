@@ -16,7 +16,13 @@
 </div>
 
 <div class="profileContainer">
-  <div class="proImg"><img src="./assets/images/avatar.jpg" width="120" alt="Profile" /></div>
+
+  <form [formGroup]="uploadForm">
+    <div class="proImg"><img src="./assets/images/avatar.jpg" width="120" alt="Profile" />
+      <input type="file" name="profile" accept="image/*" (change)="uploadprofilePictue($event)" />
+    </div>
+  </form>
+
   <div class="perDetails">
     <div class="title">
       <p>Personal details</p>
@@ -50,7 +56,7 @@
   </div> -->
 
   <div class="perDetails">
-    <p><a><img src="./assets/images/icons/logout.svg" width="20" alt="logout" (click)="logout()" /> Logout</a></p>
+    <p (click)="logout()"><a><img src="./assets/images/icons/logout.svg" width="20" alt="logout" /> Logout</a></p>
   </div>
 
 </div>

@@ -17,9 +17,18 @@ export class SignupComponent implements OnInit {
   }
 
   signIn(model) {
-    console.log("model", model);
-    this.service.signIn(model).subscribe(res => {
-      console.log("res", res);
+    let req = {};
+    req = model;
+    req["phone_number"] = "";
+    req["photo_base_64"] = "";
+    req["is_deleted"] = false;
+    req["is_active"] = true;
+    req["dob"] = new Date();
+    req["gender"] = "";
+    req["uname"] = model["username"]
+
+    this.service.signInUser(model).subscribe(res => {
+
       if (res) {
         this.router.navigate(["/auth/login"]);
       }

@@ -12,6 +12,7 @@ export class LoginComponent implements OnInit {
   constructor(private service: AuthService, public router: Router) { }
   public errorMsg = false;
   ngOnInit() {
+    localStorage.clear();
   }
 
   login(model) {
@@ -19,9 +20,10 @@ export class LoginComponent implements OnInit {
     this.service.login(model).subscribe(result => {
       let res = JSON.parse(result);
       if (res.user_id) {
-        localStorage.clear();
+
         localStorage.setItem("token", res.access);
         localStorage.setItem("userId", res.user_id);
+        localStorage.setItem('profile_id', res.profile_id);
         this.router.navigate(["/main/home"]);
       } else {
 

@@ -15,6 +15,13 @@ export class MainService {
       "Authorization": "Bearer " + localStorage.getItem("token")
     })
   };
+
+  httpOptionsImg = {
+    headers: new HttpHeaders({
+      "Authorization": "Bearer " + localStorage.getItem("token")
+    })
+  };
+
   constructor(private http: HttpClient) {
     this.apiURL = AppConfig.urls.base;
   }
@@ -49,6 +56,23 @@ export class MainService {
     );
   }
 
+  public getMynextSession(id): Observable<any> {
+    return this.http.get(this.apiURL + '/sessions/getnextsession/' + id, this.httpOptions).pipe(
+      map((response) => {
+        return response;
+      })
+    );
+  }
+
+  public getSessionDetails(sessionId, userId): Observable<any> {
+    return this.http.get(this.apiURL + '/sessions/viewsession/' + sessionId + '/' + userId, this.httpOptions).pipe(
+      map((response) => {
+        return response;
+      })
+    );
+  }
+
+
   public getProfileData(userId): Observable<any> {
     return this.http.get(this.apiURL + '/userprofile/' + userId, this.httpOptions).pipe(
       map((response) => {
@@ -65,6 +89,17 @@ export class MainService {
           return JSON.stringify(res);
         })
       )
+  }
+
+  public uploadProfileImage(formData): Observable<any> {
+
+    return this.http
+      .post(this.apiURL + "/userprofile/profileimageupload", formData, this.httpOptionsImg)
+      .pipe(
+        map(res => {
+          return JSON.stringify(res);
+        })
+      );
   }
 
 }

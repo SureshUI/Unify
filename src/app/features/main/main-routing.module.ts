@@ -37,7 +37,7 @@ const routes: Routes = [
         component: AddsessionComponent
       },
       {
-        path: 'viewsession',
+        path: 'viewsession/:sessionId',
         component: ViewsessionComponent
       },
       {

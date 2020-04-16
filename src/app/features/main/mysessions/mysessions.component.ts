@@ -34,7 +34,6 @@ export class MysessionsComponent implements OnInit {
         let session = res.response.result[i];
         var start_endtime = moment(this.datePipe.transform(session["start_endtime"], 'yyyy-MM-dd'));
         var curDate = moment(this.currentDate);
-
         var days = Math.abs(start_endtime.diff(curDate, 'days'));
         session["days"] = days;
 
@@ -51,6 +50,10 @@ export class MysessionsComponent implements OnInit {
     }, (error) => {
       //Error callback
     });
+  }
+
+  viewSessionDetails(id) {
+    this.router.navigate(["/main/viewsession/" + id]);
   }
 
 }

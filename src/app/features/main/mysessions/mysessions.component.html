@@ -39,7 +39,7 @@
   </div>
 
   <div *ngFor="let session of sessionLists">
-    <div class="sesBox">
+    <div class="sesBox" (click)="viewSessionDetails(session.session_id)">
       <div class="bannerImg">
         <img src="./assets/images/icons/image.svg" alt="img" />
       </div>
