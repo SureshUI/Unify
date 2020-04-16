@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BackgroundService } from './background.service';
 
 @Component({
   selector: 'app-main',
@@ -7,10 +8,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./main.component.scss']
 })
 export class MainComponent implements OnInit {
-
-  constructor(public router: Router) { }
+  public bgSource = './assets/images/bg4.png';
+  constructor(public router: Router, public bgService: BackgroundService) { }
 
   ngOnInit() {
+    this.bgService.bgsource$.subscribe(
+      bgpath => {
+        this.bgSource = bgpath;
+      }
+    )
   }
 
   logout() {
