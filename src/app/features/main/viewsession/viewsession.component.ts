@@ -23,6 +23,7 @@ export class ViewsessionComponent implements OnInit {
   ngOnInit() {
     this.sessionId = this.route.snapshot.paramMap.get('sessionId');
     this.getSessionDetails();
+    this.getCommentsBySessionid();
   }
   back() {
     this.router.navigate(["/main/mysessions"]);
@@ -48,6 +49,28 @@ export class ViewsessionComponent implements OnInit {
       }
 
     })
+  }
+  public commentsList = [];
+  getCommentsBySessionid() {
+    this.service.getCommentsBySessionId(this.sessionId).subscribe(res => {
+      if (res) {
+        this.commentsList = res.Resp.response;
+      }
+    })
+  }
+
+  public commentsModel = {};
+  saveComments() {
+    this.commentsModel["session_id"] = this.sessionId;
+    this.commentsModel["send_by"] = Number(localStorage.getItem("userId"));
+    this.commentsModel["send_datetime"] = this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss');
+
+    return this.service.saveComments(this.commentsModel).subscribe(result => {
+      this.commentsModel = {};
+      this.getCommentsBySessionid();
+    }, (error) => {
+      //Error callback
+    });
   }
 
 }

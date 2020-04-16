@@ -4,50 +4,68 @@
     <div class="trackName">
       <h6>Edit details</h6>
     </div>
+    <form [formGroup]="editprofileForm">
+      <div class="inputField">
+        <input type="text" placeholder="First name" formControlName="firstName" [(ngModel)]="profileModel.first_name" />
+        <div class="error" *ngIf="editprofileForm.controls.firstName.errors?.pattern">
+          Invalid first name
+        </div>
+      </div>
+      <div class="inputField">
+        <input type="text" placeholder="Last name" formControlName="lastName" [(ngModel)]="profileModel.last_name" />
+        <div class="error" *ngIf="editprofileForm.controls.lastName.errors?.pattern">
+          Invalid last name
+        </div>
+      </div>
+      <div class="inputField">
+        <input type="text" placeholder="Email" formControlName="email" [(ngModel)]="profileModel.email" />
+        <div class="error" *ngIf="editprofileForm.controls.email.errors?.pattern">
+          Invalid email-id
+        </div>
+      </div>
+      <div class="inputField">
+        <input type="text" placeholder="Mobile" formControlName="mobile" [(ngModel)]="profileModel.phone_number" />
+        <div class="error" *ngIf="editprofileForm.controls.mobile.errors?.pattern">
+          Invalid mobile number
+        </div>
+      </div>
+      <div class="radioBox d-flex">
+        <div class="radioCont">
+          <label class="radio">Male
+            <input type="radio" value="Male" formControlName="gender" [(ngModel)]="profileModel.gender">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="radioCont">
+          <label class="radio">Female
+            <input type="radio" formControlName="gender" value="Female" [(ngModel)]="profileModel.gender">
+            <span class="checkmark"></span>
+          </label>
+        </div>
+        <div class="radioCont">
+          <label class="radio">Other
+            <input type="radio" formControlName="gender" value="Other" [(ngModel)]="profileModel.gender">
+            <span class="checkmark"></span>
+          </label>
+        </div>
 
-    <div class="inputField">
-      <input type="text" placeholder="First name" [(ngModel)]="profileModel.first_name" />
-    </div>
-    <div class="inputField">
-      <input type="text" placeholder="Last name" [(ngModel)]="profileModel.last_name" />
-    </div>
-    <div class="inputField">
-      <input type="text" placeholder="Email" [(ngModel)]="profileModel.email" />
-    </div>
-    <div class="inputField">
-      <input type="text" placeholder="Mobile" [(ngModel)]="profileModel.phone_number" />
-    </div>
-    <div class="radioBox d-flex">
-      <div class="radioCont">
-        <label class="radio">Male
-          <input type="radio" name="radio" value="Male" [(ngModel)]="profileModel.gender">
-          <span class="checkmark"></span>
-        </label>
       </div>
-      <div class="radioCont">
-        <label class="radio">Female
-          <input type="radio" name="radio" value="fmale" [(ngModel)]="profileModel.gender">
-          <span class="checkmark"></span>
-        </label>
+      <div class="inputField">
+        <!-- <input type="text" placeholder="Date of Birth" [(ngModel)]="profileModel.dob" /> -->
+        <!-- <mat-form-field> -->
+        <input matInput type="date" formControlName="dob" placeholder="Date of Birth" [(ngModel)]="profileModel.dob">
+        <!-- </mat-form-field> -->
+        <div class="error" *ngIf="!editprofileForm.controls.dob.valid">
+          Invalid Date of Birth
+        </div>
       </div>
-      <div class="radioCont">
-        <label class="radio">Other
-          <input type="radio" name="radio" value="Other" [(ngModel)]="profileModel.gender">
-          <span class="checkmark"></span>
-        </label>
-      </div>
-    </div>
-    <div class="inputField">
-      <!-- <input type="text" placeholder="Date of Birth" [(ngModel)]="profileModel.dob" /> -->
-      <!-- <mat-form-field> -->
-      <input matInput type="date" placeholder="Date of Birth" [(ngModel)]="profileModel.dob">
-      <!-- </mat-form-field> -->
-    </div>
 
-  </div>
-  <div class="grayBtn">
-    <button type="button"
-      [disabled]="!profileModel.first_name||!profileModel.last_name||!profileModel.dob||!profileModel.gender||!profileModel.phone_number||!profileModel.email"
-      (click)="saveProfile()">Done</button>
+
+      <div class="grayBtn">
+        <button type="button"
+          [disabled]="!profileModel.first_name||!profileModel.last_name||!profileModel.dob||!profileModel.gender||!profileModel.phone_number||!profileModel.email"
+          (click)="saveProfile()">Done</button>
+      </div>
+    </form>
   </div>
 </div>

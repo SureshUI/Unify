@@ -73,6 +73,15 @@ export class MainService {
   }
 
 
+  public getCommentsBySessionId(sessionId): Observable<any> {
+    return this.http.get(this.apiURL + '/sessions/getcommonts/' + sessionId, this.httpOptions).pipe(
+      map((response) => {
+        return response;
+      })
+    );
+  }
+
+
   public getProfileData(userId): Observable<any> {
     return this.http.get(this.apiURL + '/userprofile/' + userId, this.httpOptions).pipe(
       map((response) => {
@@ -100,6 +109,16 @@ export class MainService {
           return JSON.stringify(res);
         })
       );
+  }
+
+  public saveComments(data): Observable<any> {
+    return this.http
+      .post(this.apiURL + "/sessions/createcomments", data, this.httpOptions)
+      .pipe(
+        map(res => {
+          return JSON.stringify(res);
+        })
+      )
   }
 
 }

@@ -33,6 +33,7 @@ export class AddsessionComponent implements OnInit {
   public currentDate: any;
   public user_id;
   public errorMsgforDate = false;
+  public commentsModel = {};
   constructor(private service: MainService, public router: Router, private datePipe: DatePipe) {
     this.currentDate = this.datePipe.transform(new Date(), 'yyyy-MM-dd');
     this.minDate = this.currentDate;
@@ -147,6 +148,10 @@ export class AddsessionComponent implements OnInit {
       if (res && res.Resp && res.Resp.status) {
         this.errorMsg = true;
       } else {
+
+        if (res.sessionid) {
+          this.saveComments(res.sessionid);
+        }
         this.router.navigate(["/main/mysessions"]);
       }
     }, (error) => {
@@ -164,6 +169,18 @@ export class AddsessionComponent implements OnInit {
       this.closeCalender();
     }
 
+  }
+
+  saveComments(sessionId) {
+    this.commentsModel["session_id"] = sessionId;
+    this.commentsModel["send_by"] = Number(localStorage.getItem("userId"));
+    this.commentsModel["send_datetime"] = this.datePipe.transform(new Date(), 'yyyy-MM-dd HH:mm:ss');
+
+    return this.service.saveComments(this.commentsModel).subscribe(result => {
+
+    }, (error) => {
+      //Error callback
+    });
   }
 
 }

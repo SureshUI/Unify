@@ -125,15 +125,15 @@
   </div>
   <div class="comments">
     <label>Comments</label>
-    <div class="addComment d-flex">
+    <div class="addComment d-flex" *ngFor="let comment of commentsList">
       <div class="proSec">
         <div class="userProfile">
-          <img src="./assets/images/profile.png" alt="user" />
+          <img src="./assets/images/avatar.jpg" alt="user" />
         </div>
-        <p>Peter</p>
+        <p>{{comment.first_name}}</p>
       </div>
       <div class="inputField" style="padding-left:24px;">
-        <p>Looking forward to it guys!</p>
+        <p>{{comment.comment_msg}}</p>
       </div>
     </div>
 
@@ -143,9 +143,9 @@
 
       </div>
       <div class="inputField" style="padding-left:24px;">
-        <input type="text" placeholder="Add Comment" />
+        <input type="text" placeholder="Add Comment" [(ngModel)]="commentsModel.comment_msg" />
       </div>
-      <div class="d-flex align-items-center justift-content-center" style="padding-left:10px;">
+      <div class="d-flex align-items-center justift-content-center" style="padding-left:10px;" (click)="saveComments()">
         <a><img src="./assets/images/icons/send.svg" width="30" alt="send" /></a>
       </div>
     </div>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MainService } from '../main.service';
 import { Router } from '@angular/router';
 import { DatePipe } from '@angular/common';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 @Component({
   selector: 'app-editprofile',
   templateUrl: './editprofile.component.html',
@@ -13,10 +14,26 @@ export class EditprofileComponent implements OnInit {
   public profileModel = {};
   pipe = new DatePipe('en-US');
   public profile_id;
-  constructor(public router: Router, private service: MainService) { }
+  editprofileForm: FormGroup;
+  errorCondition;
+  constructor(public router: Router, private service: MainService) {
+    this.editprofileForm = new FormGroup({
+      'email': new FormControl('', [Validators.required, Validators.pattern('[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$')]),
+      'firstName': new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]),
+      'lastName': new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]),
+      'gender': new FormControl('', [Validators.required]),
+      'dob': new FormControl('', [Validators.required]),
+      'mobile': new FormControl('', [Validators.required, Validators.pattern(/^[6-9]\d{9}$/)])
+
+
+
+    });
+
+  }
 
   ngOnInit() {
     this.userId = localStorage.getItem("userId");
+    this.profile_id = localStorage.getItem("profile_id");
     this.loadProfileData();
   }
 
