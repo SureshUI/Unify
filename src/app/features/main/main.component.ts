@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BackgroundService } from './background.service';
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',

@@ -79,6 +79,11 @@ export class AuthService {
       )
   }
 
+  checkLogin() {
+    // console.log(!!localStorage.getItem('token'));
+    return !!localStorage.getItem('token');
+  }
+
   handleError(error) {
 
     let errorMessage = {};
