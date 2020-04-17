@@ -1,84 +1,45 @@
-<!-- <div class="pageHeader">
-  <h2 class="title">unify</h2>
-  <a class="btn btn-secondary proImg" routerLink="/main/profile">
-    <img src="./assets/images/profile.png" alt="profile" />
-  </a>
-</div> -->
-
 <app-header></app-header>
 
 <div class="exploreCont">
   <div class="sessCont">
-  <div class="sessHeader">
-    <h3>Explore session</h3>
-  </div>
-
-  <div class="sessTitle">
-    <input type="text" placeholder="Search by keyword"/>
-    <div class="sessFilters">
-      <a> Filter <img width="20" src="./assets/images/icons/filter.png" alt="filters" /></a>
+    <div class="sessHeader">
+      <h3>Explore session</h3>
     </div>
-  </div>
 
-
-    <div class="sesBox">
-      <div class="imgCont">
-        <img src="./assets/images/session.png" alt="img" />
+    <div class="sessTitle">
+      <input type="text" placeholder="Search by keyword" (input)="searchSession($event.target.value)" />
+      <div class="sessFilters">
+        <a> Filter <img width="20" src="./assets/images/icons/filter.png" alt="filters" /></a>
       </div>
-      <div class="sesInfo">
-        <p>Space time meditation, one of the best out there!</p>
-        <div class="proDet">
-          <div class="userPro">
-            <img src="./assets/images/profile.png" alt="Profile" />
+    </div>
+
+    <div *ngFor="let session of sessionLists">
+      <div class="sesBox" (click)="viewSessionDetails(session.session_id)">
+        <div class="bannerImg">
+          <img src="./assets/images/icons/image.svg" alt="img" />
+        </div>
+        <div class="sesInfo">
+          <p>{{session.session_desc}}</p>
+          <div class="proDet">
+            <div class="userPro">
+              <img src="./assets/images/avatar.jpg" alt="Profile" />
+            </div>
+            <p>Hosted by<br /><span>{{session.hosted_name}}</span></p>
           </div>
-          <p>Hosted by<br /><span>Peter</span></p>
-        </div>
-        <div class="date">
-          <p class="noMargin">3 Feb 2020, 20:00 hrs</p>
-          <span>(in 3 days)</span>
-        </div>
-      </div>
-    </div>
+          <p class="noMargin">{{session.start_datetime | date: 'dd/MM/yyyy'}}</p>
+          <span>(in {{session.days}} days),{{session.between_hours}} hrs</span>
 
-    <div class="sesBox">
-      <div class="imgCont">
-        <img src="./assets/images/session2.png" alt="img" />
-      </div>
-      <div class="sesInfo">
-        <p>Peaceful meditation -  every Tuesday</p>
-        <div class="proDet">
-          <div class="userPro">
-            <img src="./assets/images/profile3.png" alt="Profile" />
+          <div class="inviLink">
+            <a>
+              <img src="./assets/images/icons/heart.svg" width="14" alt="Invitation" />
+              Accept Invitation
+            </a>
           </div>
-          <p>Hosted by<br /><span>Anna</span></p>
-        </div>
-        <div class="date">
-          <p class="noMargin">3 Feb 2020, 20:00 hrs</p>
-          <span>(in 3 days)</span>
         </div>
       </div>
+
     </div>
 
-    <div class="sesBox">
-      <div class="imgCont">
-        <img src="./assets/images/session3.png" alt="img" />
-      </div>
-      <div class="sesInfo">
-        <p>Blessing of the ensrgy centres</p>
-        <div class="proDet">
-          <div class="userPro">
-            <img src="./assets/images/profile4.png" alt="Profile" />
-          </div>
-          <p>Hosted by<br /><span>John</span></p>
-        </div>
-        <div class="date">
-          <p class="noMargin">3 Feb 2020, 20:00 hrs</p>
-          <span>(in 2 days)</span>
-        </div>
-      </div>
-    </div>
-
- 
   </div>
 </div>
 
