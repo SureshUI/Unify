@@ -8,8 +8,13 @@
 
     <div class="sessTitle">
       <input type="text" placeholder="Search by keyword" (input)="searchSession($event.target.value)" />
-      <div class="sessFilters">
-        <a> Filter <img width="20" src="./assets/images/icons/filter.png" alt="filters" /></a>
+      <div class="sessFilters dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown"> Filter <img width="20" src="./assets/images/icons/filter.png" alt="filters" /></a>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li><a >Filter 1</a></li>
+          <li><a >Filter 2</a></li>
+          <li><a >Filter 3</a></li>
+        </ul>
       </div>
     </div>
 

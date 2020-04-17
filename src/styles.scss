@@ -254,3 +254,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   stroke: #FFFFFF;
   stroke-width: 5px !important;
 }
+
+
+.sessFilters {
+  .dropdown-toggle::after{
+    display:none !important;
+  }
+  ul{
+    padding:10px;
+    li{
+      margin:5px 0px;
+      a{
+        color:#000000;
+      }
+    }
+  }
+}

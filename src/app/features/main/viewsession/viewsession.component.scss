@@ -371,6 +371,7 @@
     .proPicCont{
       margin-top:10px;
       display: flex;
+      flex-wrap: wrap;
       .profImgCont{
         width:70px;
         text-align: center;
@@ -384,7 +385,7 @@
           margin:0px auto;
         }
       }
-      p{text-align:center; padding:0px 10px; font-size:13px; text-overflow: ellipsis; overflow: hidden;}
+      p{text-align:center; padding:0px 10px; font-size:14px; overflow: hidden;}
     }
     h2{
       font-size:22px;

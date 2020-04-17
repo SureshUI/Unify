@@ -11,6 +11,7 @@ import { EditprofileComponent } from './editprofile/editprofile.component';
 import { SettingsComponent } from './settings/settings.component';
 import { PastmeditationsComponent } from './pastmeditations/pastmeditations.component';
 import { ViewoldsessionComponent } from './viewoldsession/viewoldsession.component';
+import { CloudComponent } from './cloud/cloud.component';
 
 
 const routes: Routes = [
@@ -60,6 +61,10 @@ const routes: Routes = [
         path: 'pastmeditations',
         component: PastmeditationsComponent
       },
+       {
+        path: 'cloud',
+        component: CloudComponent
+      },
       {
         path: 'editprofile',
         component: EditprofileComponent
@@ -75,4 +80,4 @@ const routes: Routes = [
 export class MainRoutingModule { }
 export const MainRoutingComponents = [MainComponent, HomeComponent, MysessionsComponent,
   ExploreComponent, AddsessionComponent, ViewsessionComponent, ProfileComponent,
-  EditprofileComponent, SettingsComponent, PastmeditationsComponent, ViewoldsessionComponent];
+  EditprofileComponent, SettingsComponent, PastmeditationsComponent, ViewoldsessionComponent, CloudComponent];
