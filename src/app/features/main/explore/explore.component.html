@@ -9,11 +9,13 @@
     <div class="sessTitle">
       <input type="text" placeholder="Search by keyword" (input)="searchSession($event.target.value)" />
       <div class="sessFilters dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown"> Filter <img width="20" src="./assets/images/icons/filter.png" alt="filters" /></a>
+        <a class="dropdown-toggle" data-toggle="dropdown"> Filter <img width="20" src="./assets/images/icons/filter.png"
+            alt="filters" /></a>
         <ul class="dropdown-menu dropdown-menu-right">
-          <li><a >Filter 1</a></li>
-          <li><a >Filter 2</a></li>
-          <li><a >Filter 3</a></li>
+          <li (click)="filterBySessionStatus('decline')"><a>Filter By Decline</a></li>
+          <li (click)="filterBySessionStatus('accept')"><a>Filter By Accept</a></li>
+          <li (click)="filterBySessionStatus('join')"><a>Filter By Join</a></li>
+          <li (click)="filterBySessionStatus('completed')"><a>Filter By Completed</a></li>
         </ul>
       </div>
     </div>

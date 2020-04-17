@@ -35,7 +35,6 @@ export class ViewsessionComponent implements OnInit {
       if (res && res.Resp.status == "success") {
         this.participants = res.Resp.participants;
         this.session_details = res.Resp.session_details[0];
-        console.log('session_details', this.session_details);
 
         var start_endtime = moment(this.datePipe.transform(this.session_details["start_endtime"], 'yyyy-MM-dd'));
         var curDate = moment(this.currentDate);
@@ -46,6 +45,8 @@ export class ViewsessionComponent implements OnInit {
         var endDateTIme = moment(this.datePipe.transform(this.session_details["start_endtime"], 'yyyy-MM-dd HH:mm:ss'));
         var duration = Math.abs(start_datetimeDuration.diff(endDateTIme, 'hours'));
         this.session_details["between_hours"] = duration;
+
+        console.log('this.session_details', this.session_details);
       }
 
     })

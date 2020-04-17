@@ -60,14 +60,16 @@ export class ExploreComponent implements OnInit {
   }
 
   searchSession(searchText) {
-
     if (searchText && searchText.length >= 3) {
-      this.sessionLists = this.filterSearchList.filter((x: any) => x.hosted_name.toLowerCase().startsWith(searchText.toLowerCase()));
+      let hosted_nameList = this.filterSearchList.filter((x: any) => x.hosted_name.toLowerCase().startsWith(searchText.toLowerCase()));
+      let session_descList = this.filterSearchList.filter((x: any) => x.session_desc.toLowerCase().startsWith(searchText.toLowerCase()));
+      this.sessionLists = [...hosted_nameList, ...session_descList];
     } else {
       this.sessionLists = this.filterSearchList;
     }
-
-
   }
 
+  filterBySessionStatus(satatus) {
+    console.log(status);
+  }
 }
